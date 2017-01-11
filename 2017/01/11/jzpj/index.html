@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Matlab," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="拼接操作符用 [] 做拼接时，有三种连接符：逗号”,”  分号”;” 空格其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同horzcat  水平方向拼接vertcat  垂直方向拼接repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵blkdiag  现有矩阵构造对角矩阵
+Matlab不同行数矩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matlab矩阵拼接方法">
+<meta property="og:url" content="http://yoursite.com/2017/01/11/jzpj/index.html">
 <meta property="og:site_name" content="Shens' Blog">
-<meta property="og:description" content="blog">
-<meta property="og:updated_time" content="2017-01-11T09:17:45.923Z">
+<meta property="og:description" content="拼接操作符用 [] 做拼接时，有三种连接符：逗号”,”  分号”;” 空格其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同horzcat  水平方向拼接vertcat  垂直方向拼接repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵blkdiag  现有矩阵构造对角矩阵
+Matlab不同行数矩">
+<meta property="og:updated_time" content="2017-01-11T13:23:16.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="blog">
+<meta name="twitter:title" content="Matlab矩阵拼接方法">
+<meta name="twitter:description" content="拼接操作符用 [] 做拼接时，有三种连接符：逗号”,”  分号”;” 空格其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同horzcat  水平方向拼接vertcat  垂直方向拼接repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵blkdiag  现有矩阵构造对角矩阵
+Matlab不同行数矩">
 
 
 
@@ -121,19 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/11/jzpj/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    tags | Shens' Blog
-  
-</title>
+  <title> Matlab矩阵拼接方法 | Shens' Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -164,7 +161,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -300,25 +297,228 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h2 class="post-title" itemprop="name headline">tags</h2>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/11/jzpj/">
 
-</header>
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SENSE">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/timg.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Shens' Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Shens' Blog" src="">
+    </span>
+  </span>
 
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            1 tag in total
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Matlab矩阵拼接方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-11T21:10:36+08:00">
+                2017-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/Matlab/" style="font-size: 12px; color: #ccc">Matlab</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="拼接操作符"><a href="#拼接操作符" class="headerlink" title="拼接操作符"></a>拼接操作符</h1><p>用 [] 做拼接时，有三种连接符：逗号”,”  分号”;” 空格<br>其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同<br>而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同<br>horzcat  水平方向拼接<br>vertcat  垂直方向拼接<br>repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵<br>blkdiag  现有矩阵构造对角矩阵</p>
+<h1 id="Matlab不同行数矩阵拼接"><a href="#Matlab不同行数矩阵拼接" class="headerlink" title="Matlab不同行数矩阵拼接"></a>Matlab不同行数矩阵拼接</h1><p>遇到一个不同行数矩阵拼接问题，例如</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]';</div><div class="line"></div><div class="line">B=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]';</div></pre></td></tr></table></figure>
+<p>基本想法是将行数小的矩阵补零，凑成行数一致，matlab中扩充矩阵的函数padarray</p>
+<p>下面是合并AB矩阵的程序</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">l=max([length(A),length(B)]);</div><div class="line"></div><div class="line">C=[padarray(A,[l-length(A) <span class="number">0</span>],<span class="string">'post'</span>) padarray(B,[l-length(B) <span class="number">0</span>],<span class="string">'post'</span>)]</div></pre></td></tr></table></figure>
+<p>程序运行结果</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">C =</div><div class="line"><span class="number">1</span>     <span class="number">1</span></div><div class="line"><span class="number">2</span>     <span class="number">2</span></div><div class="line"><span class="number">3</span>     <span class="number">3</span></div><div class="line"><span class="number">4</span>     <span class="number">4</span></div><div class="line"><span class="number">5</span>     <span class="number">0</span></div><div class="line"><span class="number">6</span>     <span class="number">0</span></div></pre></td></tr></table></figure>
+<p>附上Matlab文档中padarray函数的说明：</p>
+<p>padarray Syntax</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">B = padarray(A, padsize);</div><div class="line">B = padarray(A, padsize, padval);</div><div class="line">B = padarray(A, padsize, padval, direction);</div></pre></td></tr></table></figure>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>B = padarray(A, padsize) pads array A with 0’s (zeros). padsize is a vector of positive integers that specifies both the amount of padding to add and the dimension along which to add it. The value of an element in the vector specifies the amount of padding to add. The order of the element in the vector specifies the dimension along which to add the padding.( padsize中第一个元素为填充的行数，第二个元素填充的列数)</p>
+<p>For example, a padsize value of [2 3] means add 2 elements of padding along the first dimension(第一维，即行) and 3 elements of padding along the second dimension(第二维，即列). By default, paddarray adds padding before the first element and after the last element along the specified dimension.</p>
+<p>B = padarray(A, padsize, padval) pads array A where padval specifies the value to use as the pad value(填充值，若不填则默认为0). padarray uses the value 0 (zero) as the default. padval can be a scalar that specifies the pad value directly or one of the following text strings that specifies the method padarray uses to determine the values of the elements added as padding.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Value</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">‘circular’</td>
+<td style="text-align:left">Pad with circular repetition of elements within the dimension(重复元素).</td>
+</tr>
+<tr>
+<td style="text-align:left">‘replicate’</td>
+<td style="text-align:left">Pad by repeating border elements of array(边界元素).</td>
+</tr>
+<tr>
+<td style="text-align:left">‘symmetric’</td>
+<td style="text-align:left">Pad array with mirror reflections of itself(镜像元素).</td>
+</tr>
+</tbody>
+</table>
+<p>B = padarray(A, padsize, padval, direction) pads A in the direction specified by the string direction. direction can be one of the following strings. The default value is enclosed in braces ({}).</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>{‘both’} | Pads before the first element and after the last array element along each dimension. This is the default(默认填充于元素前和元素后).<br>‘post’ | Pad after the last array element along each dimension(填充于元素后).<br>‘pre|Pad before the first array element along each dimension(填充与元素前).</p>
+<p>Class Support</p>
+<p>When padding with a constant value, A can be numeric or logical. When padding using the ‘circular’, ‘replicate’, or ‘symmetric’ methods, A can be of any class. B is of the same class as A.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+          
+        </div>
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
           
@@ -350,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/timg.png"
@@ -427,6 +636,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拼接操作符"><span class="nav-number">1.</span> <span class="nav-text">拼接操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matlab不同行数矩阵拼接"><span class="nav-number">2.</span> <span class="nav-text">Matlab不同行数矩阵拼接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">2.1.</span> <span class="nav-text">Description</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -533,6 +758,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
