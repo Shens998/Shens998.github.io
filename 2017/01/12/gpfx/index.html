@@ -90,15 +90,15 @@
 <meta property="og:url" content="http://yoursite.com/2017/01/12/gpfx/index.html">
 <meta property="og:site_name" content="Shens' Blog">
 <meta property="og:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
-<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png">
-<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png">
-<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png">
-<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png">
-<meta property="og:updated_time" content="2017-01-12T08:52:07.809Z">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png-Shuiyin">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png-Shuiyin">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png-Shuiyin">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png-Shuiyin">
+<meta property="og:updated_time" content="2017-01-12T10:25:46.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="股票价格时序分析">
 <meta name="twitter:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
-<meta name="twitter:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png">
+<meta name="twitter:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png-Shuiyin">
 
 
 
@@ -544,7 +544,7 @@
 <p>Populating the interactive namespace from numpy and matplotlib</p>
 <matplotlib.axes._subplots.axessubplot at="" 0x21852ac4d68="">
 
-<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png" alt="mark"></p>
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png-Shuiyin" alt="mark"></p>
 <h1 id="三只股票聚合在一个dataframe里面"><a href="#三只股票聚合在一个dataframe里面" class="headerlink" title="三只股票聚合在一个dataframe里面"></a>三只股票聚合在一个dataframe里面</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">stocks = pd.DataFrame(&#123;<span class="string">"dijian"</span>: dianjian[<span class="string">"Adj Close"</span>],</div><div class="line">                       <span class="string">"maotai"</span>: maotai[<span class="string">"Adj Close"</span>],</div><div class="line">                       <span class="string">"quanjude"</span>: quanjude[<span class="string">"Adj Close"</span>]&#125;)</div><div class="line">stocks.head()</div></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -589,9 +589,9 @@
 </tbody>
 </table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stocks.plot(grid=<span class="keyword">True</span>)</div><div class="line">&lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x21852ac4c88</span>&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png" alt="mark"></p>
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png-Shuiyin" alt="mark"></p>
 <h1 id="不同股票双坐标可视化"><a href="#不同股票双坐标可视化" class="headerlink" title="不同股票双坐标可视化"></a>不同股票双坐标可视化</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stocks.plot(secondary_y=[<span class="string">"maotai"</span>,<span class="string">"quanjude"</span>],grid=<span class="keyword">True</span>)</div><div class="line">&lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x21854c92978</span>&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png" alt="mark"></p>
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png-Shuiyin" alt="mark"></p>
 <h1 id="以某一日股价为基准标准化股价"><a href="#以某一日股价为基准标准化股价" class="headerlink" title="以某一日股价为基准标准化股价"></a>以某一日股价为基准标准化股价</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stock_return =stocks.apply(<span class="keyword">lambda</span> x:x/x[<span class="number">1000</span>])</div><div class="line">stock_return.head()</div></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -679,7 +679,7 @@
 </tbody>
 </table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stock_return.plot(grid=<span class="keyword">True</span>).axhline(y =<span class="number">1</span>,color =<span class="string">"black"</span>,lw=<span class="number">2</span>)</div><div class="line">&lt;matplotlib.lines.Line2D at <span class="number">0x218558bc048</span>&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png" alt="mark"></p>
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png-Shuiyin" alt="mark"></p>
 <h1 id="TBD"><a href="#TBD" class="headerlink" title="TBD"></a>TBD</h1></matplotlib.axes._subplots.axessubplot>
       
     </div>
