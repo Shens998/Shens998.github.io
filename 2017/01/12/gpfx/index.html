@@ -84,20 +84,20 @@
 
 
 
-<meta name="description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析 | 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.datet">
+<meta name="description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="股票价格时序分析">
 <meta property="og:url" content="http://yoursite.com/2017/01/12/gpfx/index.html">
 <meta property="og:site_name" content="Shens' Blog">
-<meta property="og:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析 | 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.datet">
+<meta property="og:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png">
-<meta property="og:updated_time" content="2017-01-12T08:34:51.798Z">
+<meta property="og:updated_time" content="2017-01-12T08:52:07.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="股票价格时序分析">
-<meta name="twitter:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析 | 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.datet">
+<meta name="twitter:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
 <meta name="twitter:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png">
 
 
@@ -416,32 +416,268 @@
       
 
       
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><font size="4">本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,<a href="http://mp.weixin.qq.com/s?__biz=MzIxNTQ4NzAwNA==&amp;mid=2247484332&amp;idx=1&amp;sn=746f134abe4e6a2d459e96d1e7f74f44&amp;chksm=9796c4dfa0e14dc98d304d211feb626c01f171bb1d765fa50a4b7aa1f6e219c368cb08ba7464&amp;mpshare=1&amp;scene=23&amp;srcid=0112PO0iXGR6jcvgqrrBakiU#rd" target="_blank" rel="external">股票分析 | 用Python玩玩A股股票数据分析-可视化部分</a>, 边学python边学习了。</font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> pandas_datareader.data <span class="keyword">as</span> dr</div><div class="line"><span class="keyword">import</span> datetime</div><div class="line"></div><div class="line"></div><div class="line">start = datetime.datetime(<span class="number">2010</span>,<span class="number">1</span>,<span class="number">1</span>)</div><div class="line">end = datetime.date.today()</div><div class="line"></div><div class="line">dianjian= dr.DataReader(<span class="string">"601669.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">maotai = dr.DataReader(<span class="string">"600519.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">quanjude = dr.DataReader(<span class="string">"002186.SZ"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line"></div><div class="line">type(dianjian)</div></pre></td></tr></table></figure></p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><font size="4">本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,<a href="http://mp.weixin.qq.com/s?__biz=MzIxNTQ4NzAwNA==&amp;mid=2247484332&amp;idx=1&amp;sn=746f134abe4e6a2d459e96d1e7f74f44&amp;chksm=9796c4dfa0e14dc98d304d211feb626c01f171bb1d765fa50a4b7aa1f6e219c368cb08ba7464&amp;mpshare=1&amp;scene=23&amp;srcid=0112PO0iXGR6jcvgqrrBakiU#rd" target="_blank" rel="external">股票分析| 用Python玩玩A股股票数据分析-可视化部分</a>, 边学python边学习了。</font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> pandas_datareader.data <span class="keyword">as</span> dr</div><div class="line"><span class="keyword">import</span> datetime</div><div class="line"></div><div class="line"></div><div class="line">start = datetime.datetime(<span class="number">2010</span>,<span class="number">1</span>,<span class="number">1</span>)</div><div class="line">end = datetime.date.today()</div><div class="line"></div><div class="line">dianjian= dr.DataReader(<span class="string">"601669.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">maotai = dr.DataReader(<span class="string">"600519.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">quanjude = dr.DataReader(<span class="string">"002186.SZ"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line"></div><div class="line">type(dianjian)</div></pre></td></tr></table></figure></p>
 <p>pandas.core.frame.DataFrame<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len(dianjian)</div></pre></td></tr></table></figure></p>
 <p>1338<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dianjian.head()</div></pre></td></tr></table></figure></p>
-<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>Open</th><br>      <th>High</th><br>      <th>Low</th><br>      <th>Close</th><br>      <th>Volume</th><br>      <th>Adj Close</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2011-10-27</th><br>      <td>4.92</td><br>      <td>5.01</td><br>      <td>4.85</td><br>      <td>4.96</td><br>      <td>186583300</td><br>      <td>4.36</td><br>    </tr><br>    <tr><br>      <th>2011-10-28</th><br>      <td>5.04</td><br>      <td>5.18</td><br>      <td>4.92</td><br>      <td>4.97</td><br>      <td>218858400</td><br>      <td>4.37</td><br>    </tr><br>    <tr><br>      <th>2011-10-31</th><br>      <td>4.95</td><br>      <td>5.08</td><br>      <td>4.84</td><br>      <td>5.06</td><br>      <td>196341900</td><br>      <td>4.45</td><br>    </tr><br>    <tr><br>      <th>2011-11-01</th><br>      <td>5.00</td><br>      <td>5.27</td><br>      <td>4.97</td><br>      <td>5.09</td><br>      <td>284853100</td><br>      <td>4.47</td><br>    </tr><br>    <tr><br>      <th>2011-11-02</th><br>      <td>4.96</td><br>      <td>5.30</td><br>      <td>4.93</td><br>      <td>5.26</td><br>      <td>218048700</td><br>      <td>4.62</td><br>    </tr><br>  </tbody><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">Open</th>
+<th style="text-align:left">High</th>
+<th style="text-align:left">Low</th>
+<th style="text-align:left">Close</th>
+<th style="text-align:left">Volume</th>
+<th style="text-align:left">Adj Close</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2011-10-27</td>
+<td style="text-align:left">4.92</td>
+<td style="text-align:left">5.01</td>
+<td style="text-align:left">4.85</td>
+<td style="text-align:left">4.96</td>
+<td style="text-align:left">186583300</td>
+<td style="text-align:left">4.36</td>
+</tr>
+<tr>
+<td style="text-align:left">2011-10-28</td>
+<td style="text-align:left">5.04</td>
+<td style="text-align:left">5.18</td>
+<td style="text-align:left">4.92</td>
+<td style="text-align:left">4.97</td>
+<td style="text-align:left">218858400</td>
+<td style="text-align:left">4.37</td>
+</tr>
+<tr>
+<td style="text-align:left">2011-10-31</td>
+<td style="text-align:left">4.95</td>
+<td style="text-align:left">5.08</td>
+<td style="text-align:left">4.84</td>
+<td style="text-align:left">5.06</td>
+<td style="text-align:left">196341900</td>
+<td style="text-align:left">4.45</td>
+</tr>
+<tr>
+<td style="text-align:left">2011-11-01</td>
+<td style="text-align:left">5.00</td>
+<td style="text-align:left">5.27</td>
+<td style="text-align:left">4.97</td>
+<td style="text-align:left">5.09</td>
+<td style="text-align:left">284853100</td>
+<td style="text-align:left">4.47</td>
+</tr>
+<tr>
+<td style="text-align:left">2011-11-02</td>
+<td style="text-align:left">4.96</td>
+<td style="text-align:left">5.30</td>
+<td style="text-align:left">4.93</td>
+<td style="text-align:left">5.26</td>
+<td style="text-align:left">218048700</td>
+<td style="text-align:left">4.62</td>
+</tr>
+</tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dianjian.tail()</div></pre></td></tr></table></figure>
-<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>Open</th><br>      <th>High</th><br>      <th>Low</th><br>      <th>Close</th><br>      <th>Volume</th><br>      <th>Adj Close</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2016-12-08</th><br>      <td>7.39</td><br>      <td>7.39</td><br>      <td>7.20</td><br>      <td>7.22</td><br>      <td>71872100</td><br>      <td>7.22</td><br>    </tr><br>    <tr><br>      <th>2016-12-09</th><br>      <td>7.21</td><br>      <td>7.47</td><br>      <td>7.16</td><br>      <td>7.40</td><br>      <td>137389300</td><br>      <td>7.40</td><br>    </tr><br>    <tr><br>      <th>2016-12-12</th><br>      <td>7.32</td><br>      <td>7.33</td><br>      <td>6.95</td><br>      <td>7.16</td><br>      <td>121215100</td><br>      <td>7.16</td><br>    </tr><br>    <tr><br>      <th>2016-12-13</th><br>      <td>7.09</td><br>      <td>7.17</td><br>      <td>7.00</td><br>      <td>7.12</td><br>      <td>60272400</td><br>      <td>7.12</td><br>    </tr><br>    <tr><br>      <th>2016-12-14</th><br>      <td>7.09</td><br>      <td>7.11</td><br>      <td>6.83</td><br>      <td>6.87</td><br>      <td>82643000</td><br>      <td>6.87</td><br>    </tr><br>  </tbody><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">Open</th>
+<th style="text-align:left">High</th>
+<th style="text-align:left">Low</th>
+<th style="text-align:left">Close</th>
+<th style="text-align:left">Volume</th>
+<th style="text-align:left">Adj Close</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2016-12-08</td>
+<td style="text-align:left">7.39</td>
+<td style="text-align:left">7.39</td>
+<td style="text-align:left">7.20</td>
+<td style="text-align:left">7.22</td>
+<td style="text-align:left">71872100</td>
+<td style="text-align:left">7.22</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-09</td>
+<td style="text-align:left">7.21</td>
+<td style="text-align:left">7.47</td>
+<td style="text-align:left">7.16</td>
+<td style="text-align:left">7.40</td>
+<td style="text-align:left">137389300</td>
+<td style="text-align:left">7.40</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-12</td>
+<td style="text-align:left">7.32</td>
+<td style="text-align:left">7.33</td>
+<td style="text-align:left">6.95</td>
+<td style="text-align:left">7.16</td>
+<td style="text-align:left">121215100</td>
+<td style="text-align:left">7.16</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-13</td>
+<td style="text-align:left">7.09</td>
+<td style="text-align:left">7.17</td>
+<td style="text-align:left">7.00</td>
+<td style="text-align:left">7.12</td>
+<td style="text-align:left">60272400</td>
+<td style="text-align:left">7.12</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-14</td>
+<td style="text-align:left">7.09</td>
+<td style="text-align:left">7.11</td>
+<td style="text-align:left">6.83</td>
+<td style="text-align:left">6.87</td>
+<td style="text-align:left">82643000</td>
+<td style="text-align:left">6.87</td>
+</tr>
+</tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">%matplotlib inline</div><div class="line"><span class="comment"># 控制图标尺寸</span></div><div class="line">%pylab inline</div><div class="line">pylab.rcParams[<span class="string">'figure.figsize'</span>]=(<span class="number">15</span>,<span class="number">9</span>)</div><div class="line">dianjian[<span class="string">'Adj Close'</span>].plot(grid = <span class="keyword">True</span>)</div></pre></td></tr></table></figure>
 <p>Populating the interactive namespace from numpy and matplotlib</p>
 <matplotlib.axes._subplots.axessubplot at="" 0x21852ac4d68="">
 
 <p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png" alt="mark"></p>
 <h1 id="三只股票聚合在一个dataframe里面"><a href="#三只股票聚合在一个dataframe里面" class="headerlink" title="三只股票聚合在一个dataframe里面"></a>三只股票聚合在一个dataframe里面</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">stocks = pd.DataFrame(&#123;<span class="string">"dijian"</span>: dianjian[<span class="string">"Adj Close"</span>],</div><div class="line">                       <span class="string">"maotai"</span>: maotai[<span class="string">"Adj Close"</span>],</div><div class="line">                       <span class="string">"quanjude"</span>: quanjude[<span class="string">"Adj Close"</span>]&#125;)</div><div class="line">stocks.head()</div></pre></td></tr></table></figure>
-<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>dijian</th><br>      <th>maotai</th><br>      <th>quanjude</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2010-01-04</th><br>      <td>NaN</td><br>      <td>109.08326</td><br>      <td>14.571</td><br>    </tr><br>    <tr><br>      <th>2010-01-05</th><br>      <td>NaN</td><br>      <td>108.76288</td><br>      <td>15.051</td><br>    </tr><br>    <tr><br>      <th>2010-01-06</th><br>      <td>NaN</td><br>      <td>107.04219</td><br>      <td>14.881</td><br>    </tr><br>    <tr><br>      <th>2010-01-07</th><br>      <td>NaN</td><br>      <td>105.09082</td><br>      <td>14.419</td><br>    </tr><br>    <tr><br>      <th>2010-01-08</th><br>      <td>NaN</td><br>      <td>103.98699</td><br>      <td>NaN</td><br>    </tr><br>  </tbody><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">dijian</th>
+<th style="text-align:left">maotai</th>
+<th style="text-align:left">quanjude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2010-01-04</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">109.08326</td>
+<td style="text-align:left">14.571</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-05</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">108.76288</td>
+<td style="text-align:left">15.051</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-06</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">107.04219</td>
+<td style="text-align:left">14.881</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-07</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">105.09082</td>
+<td style="text-align:left">14.419</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-08</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">103.98699</td>
+<td style="text-align:left">NaN</td>
+</tr>
+</tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stocks.plot(grid=<span class="keyword">True</span>)</div><div class="line">&lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x21852ac4c88</span>&gt;</div></pre></td></tr></table></figure>
 <p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png" alt="mark"></p>
 <h1 id="不同股票双坐标可视化"><a href="#不同股票双坐标可视化" class="headerlink" title="不同股票双坐标可视化"></a>不同股票双坐标可视化</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stocks.plot(secondary_y=[<span class="string">"maotai"</span>,<span class="string">"quanjude"</span>],grid=<span class="keyword">True</span>)</div><div class="line">&lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x21854c92978</span>&gt;</div></pre></td></tr></table></figure>
 <p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png" alt="mark"></p>
 <h1 id="以某一日股价为基准标准化股价"><a href="#以某一日股价为基准标准化股价" class="headerlink" title="以某一日股价为基准标准化股价"></a>以某一日股价为基准标准化股价</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stock_return =stocks.apply(<span class="keyword">lambda</span> x:x/x[<span class="number">1000</span>])</div><div class="line">stock_return.head()</div></pre></td></tr></table></figure>
-<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>dijian</th><br>      <th>maotai</th><br>      <th>quanjude</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2010-01-04</th><br>      <td>NaN</td><br>      <td>1.015128</td><br>      <td>0.761325</td><br>    </tr><br>    <tr><br>      <th>2010-01-05</th><br>      <td>NaN</td><br>      <td>1.012146</td><br>      <td>0.786405</td><br>    </tr><br>    <tr><br>      <th>2010-01-06</th><br>      <td>NaN</td><br>      <td>0.996134</td><br>      <td>0.777522</td><br>    </tr><br>    <tr><br>      <th>2010-01-07</th><br>      <td>NaN</td><br>      <td>0.977974</td><br>      <td>0.753383</td><br>    </tr><br>    <tr><br>      <th>2010-01-08</th><br>      <td>NaN</td><br>      <td>0.967702</td><br>      <td>NaN</td><br>    </tr><br>  </tbody><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">dijian</th>
+<th style="text-align:left">maotai</th>
+<th style="text-align:left">quanjude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2010-01-04</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">1.015128</td>
+<td style="text-align:left">0.761325</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-05</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">1.012146</td>
+<td style="text-align:left">0.786405</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-06</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">0.996134</td>
+<td style="text-align:left">0.777522</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-07</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">0.977974</td>
+<td style="text-align:left">0.753383</td>
+</tr>
+<tr>
+<td style="text-align:left">2010-01-08</td>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">0.967702</td>
+<td style="text-align:left">NaN</td>
+</tr>
+</tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stock_return.tail()</div></pre></td></tr></table></figure>
-<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>dijian</th><br>      <th>maotai</th><br>      <th>quanjude</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2016-12-08</th><br>      <td>2.406667</td><br>      <td>3.142726</td><br>      <td>1.129108</td><br>    </tr><br>    <tr><br>      <th>2016-12-09</th><br>      <td>2.466667</td><br>      <td>3.143843</td><br>      <td>1.160458</td><br>    </tr><br>    <tr><br>      <th>2016-12-12</th><br>      <td>2.386667</td><br>      <td>3.041756</td><br>      <td>1.104028</td><br>    </tr><br>    <tr><br>      <th>2016-12-13</th><br>      <td>2.373333</td><br>      <td>3.098988</td><br>      <td>1.110298</td><br>    </tr><br>    <tr><br>      <th>2016-12-14</th><br>      <td>2.290000</td><br>      <td>3.092101</td><br>      <td>1.110298</td><br>    </tr><br>  </tbody><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Date</th>
+<th style="text-align:left">dijian</th>
+<th style="text-align:left">maotai</th>
+<th style="text-align:left">quanjude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2016-12-08</td>
+<td style="text-align:left">2.406667</td>
+<td style="text-align:left">3.142726</td>
+<td style="text-align:left">1.129108</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-09</td>
+<td style="text-align:left">2.466667</td>
+<td style="text-align:left">3.143843</td>
+<td style="text-align:left">1.160458</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-12</td>
+<td style="text-align:left">2.386667</td>
+<td style="text-align:left">3.041756</td>
+<td style="text-align:left">1.104028</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-13</td>
+<td style="text-align:left">2.373333</td>
+<td style="text-align:left">3.098988</td>
+<td style="text-align:left">1.110298</td>
+</tr>
+<tr>
+<td style="text-align:left">2016-12-14</td>
+<td style="text-align:left">2.290000</td>
+<td style="text-align:left">3.092101</td>
+<td style="text-align:left">1.110298</td>
+</tr>
+</tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stock_return.plot(grid=<span class="keyword">True</span>).axhline(y =<span class="number">1</span>,color =<span class="string">"black"</span>,lw=<span class="number">2</span>)</div><div class="line">&lt;matplotlib.lines.Line2D at <span class="number">0x218558bc048</span>&gt;</div></pre></td></tr></table></figure>
 <p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png" alt="mark"></p>
 <h1 id="TBD"><a href="#TBD" class="headerlink" title="TBD"></a>TBD</h1></matplotlib.axes._subplots.axessubplot>
