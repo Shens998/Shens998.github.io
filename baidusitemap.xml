@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/01/12/disastervideo/</loc>
+    <lastmod>2017-01-12T11:40:39.591Z</lastmod>
+    <data>
+        <display>
+        <title>全球灾害事件演示</title>
+        <pubTime>2017-01-12T11:29:03.000Z</pubTime>
+        
+        <tag>Videos</tag>
+         
+        <tag>Disasters</tag>
+         
+         
+           
+             
+              <breadCrumb title="Research" url="http://yoursite.com/categories/Research/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/11/jzpj/</loc>
+    <lastmod>2017-01-12T10:29:50.799Z</lastmod>
+    <data>
+        <display>
+        <title>Matlab矩阵拼接方法</title>
+        <pubTime>2017-01-11T13:10:36.000Z</pubTime>
+        
+        <tag>Matlab</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://yoursite.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/01/12/gpfx/</loc>
     <lastmod>2017-01-12T10:25:46.704Z</lastmod>
     <data>
@@ -17,26 +59,6 @@
            
              
               <breadCrumb title="Data Analytics" url="http://yoursite.com/categories/Data-Analytics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/01/11/jzpj/</loc>
-    <lastmod>2017-01-12T08:33:58.001Z</lastmod>
-    <data>
-        <display>
-        <title>Matlab矩阵拼接方法</title>
-        <pubTime>2017-01-11T13:10:36.000Z</pubTime>
-        
-        <tag>Matlab</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://yoursite.com/categories/Programming/"/>
           
         </display>
     </data>
