@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Matlab," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -84,19 +84,21 @@
 
 
 
-<meta name="description" content="拼接操作符用 [] 做拼接时，有三种连接符：逗号,; 分号;, 空格 。其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同horzcat  水平方向拼接vertcat  垂直方向拼接repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵blkdiag  现有矩阵构造对角矩阵
-Matlab不同行数矩阵">
+<meta name="description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析 | 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。123456789101112import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.datetim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matlab矩阵拼接方法">
-<meta property="og:url" content="http://yoursite.com/2017/01/11/jzpj/index.html">
+<meta property="og:title" content="股票价格时序分析">
+<meta property="og:url" content="http://yoursite.com/2017/01/12/gpfx/index.html">
 <meta property="og:site_name" content="Shens' Blog">
-<meta property="og:description" content="拼接操作符用 [] 做拼接时，有三种连接符：逗号,; 分号;, 空格 。其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同horzcat  水平方向拼接vertcat  垂直方向拼接repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵blkdiag  现有矩阵构造对角矩阵
-Matlab不同行数矩阵">
-<meta property="og:updated_time" content="2017-01-12T03:48:48.967Z">
+<meta property="og:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析 | 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。123456789101112import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.datetim">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png">
+<meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png">
+<meta property="og:updated_time" content="2017-01-12T08:20:09.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matlab矩阵拼接方法">
-<meta name="twitter:description" content="拼接操作符用 [] 做拼接时，有三种连接符：逗号,; 分号;, 空格 。其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同horzcat  水平方向拼接vertcat  垂直方向拼接repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵blkdiag  现有矩阵构造对角矩阵
-Matlab不同行数矩阵">
+<meta name="twitter:title" content="股票价格时序分析">
+<meta name="twitter:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析 | 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。123456789101112import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.datetim">
+<meta name="twitter:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png">
 
 
 
@@ -124,13 +126,13 @@ Matlab不同行数矩阵">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/11/jzpj/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/12/gpfx/"/>
 
 
 
 
 
-  <title> Matlab矩阵拼接方法 | Shens' Blog </title>
+  <title> 股票价格时序分析 | Shens' Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -306,7 +308,7 @@ Matlab不同行数矩阵">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/11/jzpj/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/12/gpfx/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SENSE">
@@ -330,7 +332,7 @@ Matlab不同行数矩阵">
             
             
               
-                Matlab矩阵拼接方法
+                股票价格时序分析
               
             
           </h1>
@@ -345,8 +347,8 @@ Matlab不同行数矩阵">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-11T21:10:36+08:00">
-                2017-01-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-12T09:46:42+08:00">
+                2017-01-12
               </time>
             
 
@@ -368,8 +370,8 @@ Matlab不同行数矩阵">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming</span>
+                  <a href="/categories/Data-Analytics/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Analytics</span>
                   </a>
                 </span>
 
@@ -387,7 +389,7 @@ Matlab不同行数矩阵">
 
           
           
-             <span id="/2017/01/11/jzpj/" class="leancloud_visitors" data-flag-title="Matlab矩阵拼接方法">
+             <span id="/2017/01/12/gpfx/" class="leancloud_visitors" data-flag-title="股票价格时序分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -414,67 +416,36 @@ Matlab不同行数矩阵">
       
 
       
-        <h1 id="拼接操作符"><a href="#拼接操作符" class="headerlink" title="拼接操作符"></a>拼接操作符</h1><p>用 <code>[]</code> 做拼接时，有三种连接符：逗号<code>,</code>; 分号<code>;</code>, 空格<code> </code>。<br>其中，分号表示换行后纵向拼接，纵向拼接要求两个拼接的矩阵的列数相同<br>而逗号和空格是等价的，表示不换行，直接横向拼接，横向拼接要求2个矩阵行数相同<br>horzcat  水平方向拼接<br>vertcat  垂直方向拼接<br>repmat   通过对现有矩阵进行复制和粘贴操作生成新的矩阵<br>blkdiag  现有矩阵构造对角矩阵</p>
-<h1 id="Matlab不同行数矩阵拼接"><a href="#Matlab不同行数矩阵拼接" class="headerlink" title="Matlab不同行数矩阵拼接"></a>Matlab不同行数矩阵拼接</h1><p>遇到一个不同行数矩阵拼接问题，例如<br><a id="more"></a><br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]';</div><div class="line"></div><div class="line">B=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]';</div></pre></td></tr></table></figure></p>
-<p>基本想法是将行数小的矩阵补零，凑成行数一致，matlab中扩充矩阵的函数padarray</p>
-<p>下面是合并AB矩阵的程序</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">l=max([length(A),length(B)]);</div><div class="line"></div><div class="line">C=[padarray(A,[l-length(A) <span class="number">0</span>],<span class="string">'post'</span>) padarray(B,[l-length(B) <span class="number">0</span>],<span class="string">'post'</span>)]</div></pre></td></tr></table></figure>
-<p>程序运行结果</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">C =</div><div class="line"><span class="number">1</span>     <span class="number">1</span></div><div class="line"><span class="number">2</span>     <span class="number">2</span></div><div class="line"><span class="number">3</span>     <span class="number">3</span></div><div class="line"><span class="number">4</span>     <span class="number">4</span></div><div class="line"><span class="number">5</span>     <span class="number">0</span></div><div class="line"><span class="number">6</span>     <span class="number">0</span></div></pre></td></tr></table></figure>
-<p>附上Matlab文档中padarray函数的说明：</p>
-<p>padarray Syntax</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">B = padarray(A, padsize);</div><div class="line">B = padarray(A, padsize, padval);</div><div class="line">B = padarray(A, padsize, padval, direction);</div></pre></td></tr></table></figure>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>B = padarray(A, padsize) pads array A with 0’s (zeros). padsize is a vector of positive integers that specifies both the amount of padding to add and the dimension along which to add it. The value of an element in the vector specifies the amount of padding to add. The order of the element in the vector specifies the dimension along which to add the padding.( padsize中第一个元素为填充的行数，第二个元素填充的列数)</p>
-<p>For example, a padsize value of [2 3] means add 2 elements of padding along the first dimension(第一维，即行) and 3 elements of padding along the second dimension(第二维，即列). By default, paddarray adds padding before the first element and after the last element along the specified dimension.</p>
-<p>B = padarray(A, padsize, padval) pads array A where padval specifies the value to use as the pad value(填充值，若不填则默认为0). padarray uses the value 0 (zero) as the default. padval can be a scalar that specifies the pad value directly or one of the following text strings that specifies the method padarray uses to determine the values of the elements added as padding.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Value</th>
-<th style="text-align:left">Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">‘circular’</td>
-<td style="text-align:left">Pad with circular repetition of elements within the dimension(重复元素).</td>
-</tr>
-<tr>
-<td style="text-align:left">‘replicate’</td>
-<td style="text-align:left">Pad by repeating border elements of array(边界元素).</td>
-</tr>
-<tr>
-<td style="text-align:left">‘symmetric’</td>
-<td style="text-align:left">Pad array with mirror reflections of itself(镜像元素).</td>
-</tr>
-</tbody>
-</table>
-<p>B = padarray(A, padsize, padval, direction) pads A in the direction specified by the string direction. direction can be one of the following strings. The default value is enclosed in braces ({}).</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>‘both’</td>
-<td>Pads before the first element and after the last array element along each dimension. This is the default(默认填充于元素前和元素后).</td>
-</tr>
-<tr>
-<td>‘post’</td>
-<td>Pad after the last array element along each dimension(填充于元素后).</td>
-</tr>
-<tr>
-<td>‘pre’</td>
-<td>Pad before the first array element along each dimension(填充与元素前).</td>
-</tr>
-</tbody>
-</table>
-<p>Class Support</p>
-<p>When padding with a constant value, A can be numeric or logical. When padding using the ‘circular’, ‘replicate’, or ‘symmetric’ methods, A can be of any class. B is of the same class as A.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><font size="4">本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,<a href="http://mp.weixin.qq.com/s?__biz=MzIxNTQ4NzAwNA==&amp;mid=2247484332&amp;idx=1&amp;sn=746f134abe4e6a2d459e96d1e7f74f44&amp;chksm=9796c4dfa0e14dc98d304d211feb626c01f171bb1d765fa50a4b7aa1f6e219c368cb08ba7464&amp;mpshare=1&amp;scene=23&amp;srcid=0112PO0iXGR6jcvgqrrBakiU#rd" target="_blank" rel="external">股票分析 | 用Python玩玩A股股票数据分析-可视化部分</a>, 边学python边学习了。</font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> pandas_datareader.data <span class="keyword">as</span> dr</div><div class="line"><span class="keyword">import</span> datetime</div><div class="line"></div><div class="line">start = datetime.datetime(<span class="number">2010</span>,<span class="number">1</span>,<span class="number">1</span>)</div><div class="line">end = datetime.date.today()</div><div class="line"></div><div class="line">dianjian= dr.DataReader(<span class="string">"601669.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">maotai = dr.DataReader(<span class="string">"600519.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">quanjude = dr.DataReader(<span class="string">"002186.SZ"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line"></div><div class="line">type(dianjian)</div></pre></td></tr></table></figure></p>
+<p>pandas.core.frame.DataFrame</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len(dianjian)</div></pre></td></tr></table></figure>
+<p>1338<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dianjian.head()</div></pre></td></tr></table></figure></p>
+<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>Open</th><br>      <th>High</th><br>      <th>Low</th><br>      <th>Close</th><br>      <th>Volume</th><br>      <th>Adj Close</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2011-10-27</th><br>      <td>4.92</td><br>      <td>5.01</td><br>      <td>4.85</td><br>      <td>4.96</td><br>      <td>186583300</td><br>      <td>4.36</td><br>    </tr><br>    <tr><br>      <th>2011-10-28</th><br>      <td>5.04</td><br>      <td>5.18</td><br>      <td>4.92</td><br>      <td>4.97</td><br>      <td>218858400</td><br>      <td>4.37</td><br>    </tr><br>    <tr><br>      <th>2011-10-31</th><br>      <td>4.95</td><br>      <td>5.08</td><br>      <td>4.84</td><br>      <td>5.06</td><br>      <td>196341900</td><br>      <td>4.45</td><br>    </tr><br>    <tr><br>      <th>2011-11-01</th><br>      <td>5.00</td><br>      <td>5.27</td><br>      <td>4.97</td><br>      <td>5.09</td><br>      <td>284853100</td><br>      <td>4.47</td><br>    </tr><br>    <tr><br>      <th>2011-11-02</th><br>      <td>4.96</td><br>      <td>5.30</td><br>      <td>4.93</td><br>      <td>5.26</td><br>      <td>218048700</td><br>      <td>4.62</td><br>    </tr><br>  </tbody><br></table>
 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dianjian.tail()</div></pre></td></tr></table></figure>
+<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>Open</th><br>      <th>High</th><br>      <th>Low</th><br>      <th>Close</th><br>      <th>Volume</th><br>      <th>Adj Close</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2016-12-08</th><br>      <td>7.39</td><br>      <td>7.39</td><br>      <td>7.20</td><br>      <td>7.22</td><br>      <td>71872100</td><br>      <td>7.22</td><br>    </tr><br>    <tr><br>      <th>2016-12-09</th><br>      <td>7.21</td><br>      <td>7.47</td><br>      <td>7.16</td><br>      <td>7.40</td><br>      <td>137389300</td><br>      <td>7.40</td><br>    </tr><br>    <tr><br>      <th>2016-12-12</th><br>      <td>7.32</td><br>      <td>7.33</td><br>      <td>6.95</td><br>      <td>7.16</td><br>      <td>121215100</td><br>      <td>7.16</td><br>    </tr><br>    <tr><br>      <th>2016-12-13</th><br>      <td>7.09</td><br>      <td>7.17</td><br>      <td>7.00</td><br>      <td>7.12</td><br>      <td>60272400</td><br>      <td>7.12</td><br>    </tr><br>    <tr><br>      <th>2016-12-14</th><br>      <td>7.09</td><br>      <td>7.11</td><br>      <td>6.83</td><br>      <td>6.87</td><br>      <td>82643000</td><br>      <td>6.87</td><br>    </tr><br>  </tbody><br></table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">%matplotlib inline</div><div class="line"><span class="comment"># 控制图标尺寸</span></div><div class="line">%pylab inline</div><div class="line">pylab.rcParams[<span class="string">'figure.figsize'</span>]=(<span class="number">15</span>,<span class="number">9</span>)</div><div class="line">dianjian[<span class="string">'Adj Close'</span>].plot(grid = <span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<p>Populating the interactive namespace from numpy and matplotlib</p>
+<matplotlib.axes._subplots.axessubplot at="" 0x21852ac4d68="">
+
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png" alt="mark"></p>
+<h1 id="三只股票聚合在一个dataframe里面"><a href="#三只股票聚合在一个dataframe里面" class="headerlink" title="三只股票聚合在一个dataframe里面"></a>三只股票聚合在一个dataframe里面</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">stocks = pd.DataFrame(&#123;<span class="string">"dijian"</span>: dianjian[<span class="string">"Adj Close"</span>],</div><div class="line">                       <span class="string">"maotai"</span>: maotai[<span class="string">"Adj Close"</span>],</div><div class="line">                       <span class="string">"quanjude"</span>: quanjude[<span class="string">"Adj Close"</span>]&#125;)</div><div class="line">stocks.head()</div></pre></td></tr></table></figure>
+<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>dijian</th><br>      <th>maotai</th><br>      <th>quanjude</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2010-01-04</th><br>      <td>NaN</td><br>      <td>109.08326</td><br>      <td>14.571</td><br>    </tr><br>    <tr><br>      <th>2010-01-05</th><br>      <td>NaN</td><br>      <td>108.76288</td><br>      <td>15.051</td><br>    </tr><br>    <tr><br>      <th>2010-01-06</th><br>      <td>NaN</td><br>      <td>107.04219</td><br>      <td>14.881</td><br>    </tr><br>    <tr><br>      <th>2010-01-07</th><br>      <td>NaN</td><br>      <td>105.09082</td><br>      <td>14.419</td><br>    </tr><br>    <tr><br>      <th>2010-01-08</th><br>      <td>NaN</td><br>      <td>103.98699</td><br>      <td>NaN</td><br>    </tr><br>  </tbody><br></table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stocks.plot(grid=<span class="keyword">True</span>)</div><div class="line">&lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x21852ac4c88</span>&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png" alt="mark"></p>
+<h1 id="不同股票双坐标可视化"><a href="#不同股票双坐标可视化" class="headerlink" title="不同股票双坐标可视化"></a>不同股票双坐标可视化</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stocks.plot(secondary_y=[<span class="string">"maotai"</span>,<span class="string">"quanjude"</span>],grid=<span class="keyword">True</span>)</div><div class="line">&lt;matplotlib.axes._subplots.AxesSubplot at <span class="number">0x21854c92978</span>&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png" alt="mark"></p>
+<h1 id="以某一日股价为基准标准化股价"><a href="#以某一日股价为基准标准化股价" class="headerlink" title="以某一日股价为基准标准化股价"></a>以某一日股价为基准标准化股价</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stock_return =stocks.apply(<span class="keyword">lambda</span> x:x/x[<span class="number">1000</span>])</div><div class="line">stock_return.head()</div></pre></td></tr></table></figure>
+<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>dijian</th><br>      <th>maotai</th><br>      <th>quanjude</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2010-01-04</th><br>      <td>NaN</td><br>      <td>1.015128</td><br>      <td>0.761325</td><br>    </tr><br>    <tr><br>      <th>2010-01-05</th><br>      <td>NaN</td><br>      <td>1.012146</td><br>      <td>0.786405</td><br>    </tr><br>    <tr><br>      <th>2010-01-06</th><br>      <td>NaN</td><br>      <td>0.996134</td><br>      <td>0.777522</td><br>    </tr><br>    <tr><br>      <th>2010-01-07</th><br>      <td>NaN</td><br>      <td>0.977974</td><br>      <td>0.753383</td><br>    </tr><br>    <tr><br>      <th>2010-01-08</th><br>      <td>NaN</td><br>      <td>0.967702</td><br>      <td>NaN</td><br>    </tr><br>  </tbody><br></table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stock_return.tail()</div></pre></td></tr></table></figure>
+<table><br>  <thead><br>    <tr><br>      <th>Date</th><br>      <th>dijian</th><br>      <th>maotai</th><br>      <th>quanjude</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>2016-12-08</th><br>      <td>2.406667</td><br>      <td>3.142726</td><br>      <td>1.129108</td><br>    </tr><br>    <tr><br>      <th>2016-12-09</th><br>      <td>2.466667</td><br>      <td>3.143843</td><br>      <td>1.160458</td><br>    </tr><br>    <tr><br>      <th>2016-12-12</th><br>      <td>2.386667</td><br>      <td>3.041756</td><br>      <td>1.104028</td><br>    </tr><br>    <tr><br>      <th>2016-12-13</th><br>      <td>2.373333</td><br>      <td>3.098988</td><br>      <td>1.110298</td><br>    </tr><br>    <tr><br>      <th>2016-12-14</th><br>      <td>2.290000</td><br>      <td>3.092101</td><br>      <td>1.110298</td><br>    </tr><br>  </tbody><br></table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">stock_return.plot(grid=<span class="keyword">True</span>).axhline(y =<span class="number">1</span>,color =<span class="string">"black"</span>,lw=<span class="number">2</span>)</div><div class="line">&lt;matplotlib.lines.Line2D at <span class="number">0x218558bc048</span>&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png" alt="mark"></p>
+<h1 id="TBD"><a href="#TBD" class="headerlink" title="TBD"></a>TBD</h1></matplotlib.axes._subplots.axessubplot>
       
     </div>
 
@@ -497,7 +468,7 @@ Matlab不同行数矩阵">
       
         <div class="post-tags">
           
-            <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -506,15 +477,15 @@ Matlab不同行数矩阵">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/01/11/jzpj/" rel="next" title="Matlab矩阵拼接方法">
+                <i class="fa fa-chevron-left"></i> Matlab矩阵拼接方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/12/gpfx/" rel="prev" title="股票价格时序分析">
-                股票价格时序分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -683,7 +654,7 @@ Matlab不同行数矩阵">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拼接操作符"><span class="nav-number">1.</span> <span class="nav-text">拼接操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matlab不同行数矩阵拼接"><span class="nav-number">2.</span> <span class="nav-text">Matlab不同行数矩阵拼接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">2.1.</span> <span class="nav-text">Description</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三只股票聚合在一个dataframe里面"><span class="nav-number">2.</span> <span class="nav-text">三只股票聚合在一个dataframe里面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不同股票双坐标可视化"><span class="nav-number">3.</span> <span class="nav-text">不同股票双坐标可视化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以某一日股价为基准标准化股价"><span class="nav-number">4.</span> <span class="nav-text">以某一日股价为基准标准化股价</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TBD"><span class="nav-number">5.</span> <span class="nav-text">TBD</span></a></li></ol></div>
             
 
           </div>
