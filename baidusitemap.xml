@@ -4,8 +4,23 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/03/09/postgresql/</loc>
+    <lastmod>2017-03-09T12:34:57.459Z</lastmod>
+    <data>
+        <display>
+        <title>postgresql</title>
+        <pubTime>2017-03-09T09:28:02.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/01/18/hexothemenext/</loc>
-    <lastmod>2017-01-18T02:44:54.966Z</lastmod>
+    <lastmod>2017-01-18T03:21:29.767Z</lastmod>
     <data>
         <display>
         <title>Hexo 主题 Next 修改(TBD)</title>

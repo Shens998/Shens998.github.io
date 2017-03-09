@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[postgresql]]></title>
+      <url>%2F2017%2F03%2F09%2Fpostgresql%2F</url>
+      <content type="text"><![CDATA[#PostgreSQL 安装以及配置修改 ##PostgreSQL 报错 ###查看服务器状态 报错无效的‘UTF8’编码顺序 检查配置文件postgresql.conf中的配置变量lc_messages，把值改为 English_United States.1252 ps. 检查客户端编码格式1show client_encoding; 检查服务器端编码格式1show server_encoding;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Hexo 主题 Next 修改(TBD)]]></title>
       <url>%2F2017%2F01%2F18%2Fhexothemenext%2F</url>
       <content type="text"><![CDATA[主题美化代码高亮主题修改根据Netx的help文档, Next提供了5个Code主题: normal, night,night blue, night bright, andnight eighties把主题配置文件中的highlight_theme值设置为想要的字段(本文用的是night eighties)：1highlight_theme: night eighties 需要注意的是，Next对语言的支持不是很完备。 Tips中文乱码问题Hexo是根据Markdown文本来生成对应的静态文件的。可能会遇上中文乱码的问题。只需要将Markdown文件的编码格式改成utf-8即可。]]></content>
