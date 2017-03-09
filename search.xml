@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[postgresql]]></title>
       <url>%2F2017%2F03%2F09%2Fpostgresql%2F</url>
-      <content type="text"><![CDATA[#PostgreSQL 安装以及配置修改 ##PostgreSQL 报错 ###查看服务器状态 报错无效的‘UTF8’编码顺序 检查配置文件postgresql.conf中的配置变量lc_messages，把值改为 English_United States.1252 ps. 检查客户端编码格式1show client_encoding; 检查服务器端编码格式1show server_encoding;]]></content>
+      <content type="text"><![CDATA[PostgreSQL 安装以及配置修改PostgreSQL 报错查看服务器状态 报错无效的‘UTF8’编码顺序检查配置文件postgresql.conf中的配置变量lc_messages，把值改为 English_United States.1252 ps. 检查客户端编码格式1show client_encoding; 检查服务器端编码格式1show server_encoding;]]></content>
     </entry>
 
     
