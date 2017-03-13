@@ -84,25 +84,22 @@
 
 
 
-<meta name="description" content="[TOC]
-本文主要参考postgreSQL 9.3版本的官方手册，以及该文
+<meta name="description" content="本文主要参考postgreSQL 9.3版本的官方手册，以及该文
 pg_hba.conf 文件该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式
-1234567local      database  user  auth-method  [auth-options]host       d">
+1234567local      database  user  auth-method  [auth-options]host       databas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PostgreSQL客户端认证pg_hba.conf文件">
 <meta property="og:url" content="http://yoursite.com/2017/03/13/confpostsql/index.html">
 <meta property="og:site_name" content="Shens' Blog">
-<meta property="og:description" content="[TOC]
-本文主要参考postgreSQL 9.3版本的官方手册，以及该文
+<meta property="og:description" content="本文主要参考postgreSQL 9.3版本的官方手册，以及该文
 pg_hba.conf 文件该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式
-1234567local      database  user  auth-method  [auth-options]host       d">
-<meta property="og:updated_time" content="2017-03-13T03:02:42.624Z">
+1234567local      database  user  auth-method  [auth-options]host       databas">
+<meta property="og:updated_time" content="2017-03-13T03:08:21.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostgreSQL客户端认证pg_hba.conf文件">
-<meta name="twitter:description" content="[TOC]
-本文主要参考postgreSQL 9.3版本的官方手册，以及该文
+<meta name="twitter:description" content="本文主要参考postgreSQL 9.3版本的官方手册，以及该文
 pg_hba.conf 文件该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式
-1234567local      database  user  auth-method  [auth-options]host       d">
+1234567local      database  user  auth-method  [auth-options]host       databas">
 
 
 
@@ -420,8 +417,7 @@ pg_hba.conf 文件该文件负责对postgreSQL的客户端认证方式进行配�
       
 
       
-        <p>[TOC]</p>
-<p>本文主要参考postgreSQL 9.3版本的官方手册，以及<a href="http://www.qingpingshan.com/shujuku/postgresql/156383.html" target="_blank" rel="external">该文</a></p>
+        <p>本文主要参考postgreSQL 9.3版本的官方手册，以及<a href="http://www.qingpingshan.com/shujuku/postgresql/156383.html" target="_blank" rel="external">该文</a></p>
 <h1 id="pg-hba-conf-文件"><a href="#pg-hba-conf-文件" class="headerlink" title="pg_hba.conf 文件"></a>pg_hba.conf 文件</h1><p>该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">local      database  user  auth-method  [auth-options]</div><div class="line">host       database  user  address  auth-method  [auth-options]</div><div class="line">hostssl    database  user  address  auth-method  [auth-options]</div><div class="line">hostnossl  database  user  address  auth-method  [auth-options]</div><div class="line">host       database  user  IP-address  IP-mask  auth-method  [auth-options]</div><div class="line">hostssl    database  user  IP-address  IP-mask  auth-method  [auth-options]</div><div class="line">hostnossl  database  user  IP-address  IP-mask  auth-method  [auth-options]</div></pre></td></tr></table></figure>
 <p>举个栗子：<br>32 -&gt; 192.168.1.1/32 表示必须是来自这个IP地址的访问才合法；<br>24 -&gt; 192.168.1.0/24 表示只要来自192.168.1.0 ~ 192.168.1.255的都合法；<br>16 -&gt; 192.168.0.0/16 表示只要来自192.168.0.0 ~ 192.168.255.255的都合法；<br>8   -&gt; 192.0.0.0/16 表示只要来自192.0.0.0 ~ 192.255.255.255的都合法；<br>0   -&gt; 0.0.0.0/0 表示全部IP地址都合法，/左边的IP地址随便了只要是合法的IP地址即可；</p>
