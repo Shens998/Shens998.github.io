@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/03/13/confpostsql/</loc>
-    <lastmod>2017-03-13T03:12:23.131Z</lastmod>
+    <loc>http://yoursite.com/2017/03/13/postgresqlconf/</loc>
+    <lastmod>2017-03-13T04:46:29.935Z</lastmod>
     <data>
         <display>
-        <title>PostgreSQL客户端认证pg_hba.conf文件</title>
-        <pubTime>2017-03-13T02:05:47.000Z</pubTime>
+        <title>PostgreSQL配置文件postgresql.conf</title>
+        <pubTime>2017-03-13T03:36:22.000Z</pubTime>
         
          
            
@@ -21,9 +21,10 @@
     </url>
 
     
+    
   <url>
     <loc>http://yoursite.com/2017/01/18/hexothemenext/</loc>
-    <lastmod>2017-03-13T03:10:41.223Z</lastmod>
+    <lastmod>2017-03-13T04:19:29.431Z</lastmod>
     <data>
         <display>
         <title>Hexo 主题 Next 修改(TBD)</title>
@@ -37,6 +38,44 @@
            
              
               <breadCrumb title="Programming" url="http://yoursite.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/11/jzpj/</loc>
+    <lastmod>2017-03-13T03:30:24.852Z</lastmod>
+    <data>
+        <display>
+        <title>Matlab矩阵拼接方法</title>
+        <pubTime>2017-01-11T13:10:36.000Z</pubTime>
+        
+        <tag>Matlab</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://yoursite.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/13/confpostsql/</loc>
+    <lastmod>2017-03-13T03:12:23.131Z</lastmod>
+    <data>
+        <display>
+        <title>PostgreSQL客户端认证pg_hba.conf文件</title>
+        <pubTime>2017-03-13T02:05:47.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Software" url="http://yoursite.com/categories/Software/"/>
           
         </display>
     </data>
@@ -97,26 +136,6 @@
            
              
               <breadCrumb title="Software" url="http://yoursite.com/categories/Software/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/01/11/jzpj/</loc>
-    <lastmod>2017-03-09T12:46:40.807Z</lastmod>
-    <data>
-        <display>
-        <title>Matlab矩阵拼接方法</title>
-        <pubTime>2017-01-11T13:10:36.000Z</pubTime>
-        
-        <tag>Matlab</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://yoursite.com/categories/Programming/"/>
           
         </display>
     </data>
