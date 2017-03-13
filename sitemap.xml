@@ -2,37 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/03/13/confpostsql/</loc>
+    
+    <lastmod>2017-03-13T03:02:42.624Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/03/09/postgresql/</loc>
     
-    <lastmod>2017-03-09T12:37:48.190Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/01/18/hexothemenext/</loc>
-    
-    <lastmod>2017-01-18T03:21:29.767Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/01/12/disastervideo/</loc>
-    
-    <lastmod>2017-01-12T11:50:25.847Z</lastmod>
+    <lastmod>2017-03-13T02:16:21.288Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/01/11/jzpj/</loc>
     
-    <lastmod>2017-01-12T10:29:50.799Z</lastmod>
+    <lastmod>2017-03-09T12:46:40.807Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/01/18/hexothemenext/</loc>
+    
+    <lastmod>2017-03-09T12:46:32.256Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/01/12/gpfx/</loc>
     
-    <lastmod>2017-01-12T10:25:46.704Z</lastmod>
+    <lastmod>2017-03-09T12:46:21.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/01/12/disastervideo/</loc>
+    
+    <lastmod>2017-03-09T12:46:06.607Z</lastmod>
     
   </url>
   

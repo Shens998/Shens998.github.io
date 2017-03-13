@@ -4,36 +4,17 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/03/09/postgresql/</loc>
-    <lastmod>2017-03-09T12:37:48.190Z</lastmod>
+    <loc>http://yoursite.com/2017/03/13/confpostsql/</loc>
+    <lastmod>2017-03-13T03:02:42.624Z</lastmod>
     <data>
         <display>
-        <title>postgresql</title>
-        <pubTime>2017-03-09T09:28:02.000Z</pubTime>
+        <title>PostgreSQL客户端认证pg_hba.conf文件</title>
+        <pubTime>2017-03-13T02:05:47.000Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/01/18/hexothemenext/</loc>
-    <lastmod>2017-01-18T03:21:29.767Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo 主题 Next 修改(TBD)</title>
-        <pubTime>2017-01-18T02:27:48.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>next</tag>
-         
          
            
              
-              <breadCrumb title="programming" url="http://yoursite.com/categories/programming/"/>
+              <breadCrumb title="Software" url="http://yoursite.com/categories/Software/"/>
           
         </display>
     </data>
@@ -41,21 +22,17 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/01/12/disastervideo/</loc>
-    <lastmod>2017-01-12T11:50:25.847Z</lastmod>
+    <loc>http://yoursite.com/2017/03/09/postgresql/</loc>
+    <lastmod>2017-03-13T02:16:21.288Z</lastmod>
     <data>
         <display>
-        <title>全球灾害事件演示</title>
-        <pubTime>2017-01-12T11:29:03.000Z</pubTime>
+        <title>PostgreSQL安装</title>
+        <pubTime>2017-03-09T09:28:02.000Z</pubTime>
         
-        <tag>Videos</tag>
-         
-        <tag>Disasters</tag>
-         
          
            
              
-              <breadCrumb title="Research" url="http://yoursite.com/categories/Research/"/>
+              <breadCrumb title="Software" url="http://yoursite.com/categories/Software/"/>
           
         </display>
     </data>
@@ -64,7 +41,7 @@
     
   <url>
     <loc>http://yoursite.com/2017/01/11/jzpj/</loc>
-    <lastmod>2017-01-12T10:29:50.799Z</lastmod>
+    <lastmod>2017-03-09T12:46:40.807Z</lastmod>
     <data>
         <display>
         <title>Matlab矩阵拼接方法</title>
@@ -83,8 +60,30 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/01/18/hexothemenext/</loc>
+    <lastmod>2017-03-09T12:46:32.256Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo 主题 Next 修改(TBD)</title>
+        <pubTime>2017-01-18T02:27:48.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>next</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://yoursite.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/01/12/gpfx/</loc>
-    <lastmod>2017-01-12T10:25:46.704Z</lastmod>
+    <lastmod>2017-03-09T12:46:21.581Z</lastmod>
     <data>
         <display>
         <title>股票价格时序分析</title>
@@ -96,6 +95,28 @@
            
              
               <breadCrumb title="Data Analytics" url="http://yoursite.com/categories/Data-Analytics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/12/disastervideo/</loc>
+    <lastmod>2017-03-09T12:46:06.607Z</lastmod>
+    <data>
+        <display>
+        <title>全球灾害事件演示</title>
+        <pubTime>2017-01-12T11:29:03.000Z</pubTime>
+        
+        <tag>Videos</tag>
+         
+        <tag>Disasters</tag>
+         
+         
+           
+             
+              <breadCrumb title="Research" url="http://yoursite.com/categories/Research/"/>
           
         </display>
     </data>

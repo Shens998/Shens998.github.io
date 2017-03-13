@@ -84,20 +84,23 @@
 
 
 
-<meta name="description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
+<meta name="description" content="[TOC]
+Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="股票价格时序分析">
 <meta property="og:url" content="http://yoursite.com/2017/01/12/gpfx/index.html">
 <meta property="og:site_name" content="Shens' Blog">
-<meta property="og:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
+<meta property="og:description" content="[TOC]
+Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png-Shuiyin">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151414282.png-Shuiyin">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151430030.png-Shuiyin">
 <meta property="og:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151441927.png-Shuiyin">
-<meta property="og:updated_time" content="2017-01-12T10:25:46.704Z">
+<meta property="og:updated_time" content="2017-03-09T12:46:21.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="股票价格时序分析">
-<meta name="twitter:description" content="Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.dateti">
+<meta name="twitter:description" content="[TOC]
+Introduction本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,股票分析| 用Python玩玩A股股票数据分析-可视化部分, 边学python边学习了。12345678910111213import pandas as pdimport pandas_datareader.data as drimport datetimestart = datetime.">
 <meta name="twitter:image" content="http://ojnmbqawr.bkt.clouddn.com/blog/20170112/151312262.png-Shuiyin">
 
 
@@ -416,7 +419,8 @@
       
 
       
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><font size="4">本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,<a href="http://mp.weixin.qq.com/s?__biz=MzIxNTQ4NzAwNA==&amp;mid=2247484332&amp;idx=1&amp;sn=746f134abe4e6a2d459e96d1e7f74f44&amp;chksm=9796c4dfa0e14dc98d304d211feb626c01f171bb1d765fa50a4b7aa1f6e219c368cb08ba7464&amp;mpshare=1&amp;scene=23&amp;srcid=0112PO0iXGR6jcvgqrrBakiU#rd" target="_blank" rel="external">股票分析| 用Python玩玩A股股票数据分析-可视化部分</a>, 边学python边学习了。</font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> pandas_datareader.data <span class="keyword">as</span> dr</div><div class="line"><span class="keyword">import</span> datetime</div><div class="line"></div><div class="line"></div><div class="line">start = datetime.datetime(<span class="number">2010</span>,<span class="number">1</span>,<span class="number">1</span>)</div><div class="line">end = datetime.date.today()</div><div class="line"></div><div class="line">dianjian= dr.DataReader(<span class="string">"601669.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">maotai = dr.DataReader(<span class="string">"600519.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">quanjude = dr.DataReader(<span class="string">"002186.SZ"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line"></div><div class="line">type(dianjian)</div></pre></td></tr></table></figure></p>
+        <p>[TOC]</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><font size="4">本文是在之前做数据分析的学习时候发现沈浩老师微信公共号分享的一篇文章,<a href="http://mp.weixin.qq.com/s?__biz=MzIxNTQ4NzAwNA==&amp;mid=2247484332&amp;idx=1&amp;sn=746f134abe4e6a2d459e96d1e7f74f44&amp;chksm=9796c4dfa0e14dc98d304d211feb626c01f171bb1d765fa50a4b7aa1f6e219c368cb08ba7464&amp;mpshare=1&amp;scene=23&amp;srcid=0112PO0iXGR6jcvgqrrBakiU#rd" target="_blank" rel="external">股票分析| 用Python玩玩A股股票数据分析-可视化部分</a>, 边学python边学习了。</font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> pandas_datareader.data <span class="keyword">as</span> dr</div><div class="line"><span class="keyword">import</span> datetime</div><div class="line"></div><div class="line"></div><div class="line">start = datetime.datetime(<span class="number">2010</span>,<span class="number">1</span>,<span class="number">1</span>)</div><div class="line">end = datetime.date.today()</div><div class="line"></div><div class="line">dianjian= dr.DataReader(<span class="string">"601669.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">maotai = dr.DataReader(<span class="string">"600519.SS"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line">quanjude = dr.DataReader(<span class="string">"002186.SZ"</span>,<span class="string">"yahoo"</span>,start,end)</div><div class="line"></div><div class="line">type(dianjian)</div></pre></td></tr></table></figure></p>
 <p>pandas.core.frame.DataFrame<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len(dianjian)</div></pre></td></tr></table></figure></p>
 <p>1338<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dianjian.head()</div></pre></td></tr></table></figure></p>
 <table>
@@ -800,7 +804,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
