@@ -9,7 +9,7 @@ Tips:
 
 PostgreSQL 报错
 查看服务器状态 报错无效的‘UTF8’编码顺序
-检查配置文件postgresql.conf中的配置变量lc_messages，把值改为 English_United States.1252
+检查配置文件postgresql.conf中的配置变量`lc_messages`，把值改为 `English_United States.1252`
 
 ps. 检查客户端编码格式
 
