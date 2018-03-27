@@ -8,15 +8,17 @@ tags:
 
 pg_hba.conf 文件
 该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式
+
 连接方式|数据库 |用户 |地址| 连接方式|授权选项
---|--|--|--|--|--
-local|      database | user | address |auth-method  |[auth-options
-host   |    database|  user | address | auth-method | |[auth-options]
+----|----|----|----|----|----
+local|      database | user | address |auth-method  |[auth-options]
+host   |    database|  user | address | auth-method |[auth-options]
 hostssl   | database | user | address | auth-method | [auth-options]
 hostnossl  |database | user | address | auth-method | [auth-options]
 host      | database  |user | IP-address IP-mask | auth-method | [auth-options]
-hostssl   | database | user | IP-address IP-mask  auth-method | [auth-options]
+hostssl   | database | user | IP-address IP-mask | auth-method | [auth-options]
 hostnossl  |database | user | IP-address IP-mask | auth-method | [auth-options]
+
 举个栗子：
 32 -> 192.168.1.1/32 表示必须是来自这个IP地址的访问才合法；
 24 -> 192.168.1.0/24 表示只要来自192.168.1.0 ~ 192.168.1.255的都合法；
