@@ -729,21 +729,7 @@
 </tr>
 </tbody>
 </table>
-<p>举个栗子：<br>32 -&gt; 192.168.1.1/32 表示必须是来自这个IP地址的访问才合法；<br>24 -&gt; 192.168.1.0/24 表示只要来自192.168.1.0 ~ 192.168.1.255的都合法；<br>16 -&gt; 192.168.0.0/16 表示只要来自192.168.0.0 ~ 192.168.255.255的都合法；<br>8 -&gt; 192.0.0.0/16 表示只要来自192.0.0.0 ~ 192.255.255.255的都合法；<br>0 -&gt; 0.0.0.0/0 表示全部IP地址都合法，/左边的IP地址随便了只要是合法的IP地址即可；</p>
-<h1 id="访问规则说明"><a href="#访问规则说明" class="headerlink" title="访问规则说明"></a>访问规则说明</h1><h2 id="连接方式（Type）"><a href="#连接方式（Type）" class="headerlink" title="连接方式（Type）"></a>连接方式（Type）</h2><p>连接方式共有四种：<strong>local，host hostssl，hostnossl</strong></p>
-<ol>
-<li><p><strong>local</strong><br>这条记录匹配通过 Unix 域套接字进行的联接企图， 没有这种类型的记录，就不允许 Unix 域套接字的联接。</p>
-</li>
-<li><p><strong>host</strong><br>这条记录匹配通过TCP/IP网络进行的联接尝试.他既匹配通过ssl方式的连接，也匹配通过非ssl方式的连接.<br><strong>Tips</strong>：要使用该选项你要在postgresql.conf文件里设置 listen_address 选项，不在listen_address里的IP地址是无法匹配到的。因为默认的行为是只在localhost上监听本地连接。</p>
-</li>
-<li><p><strong>hostssl</strong><br>这条记录匹配通过在TCP/IP上进行的SSL联接企图.<br>要使用该选项，服务器编译时必须使用–with-openssl选项，并且在服务器启动时ssl设置是打开的，具体内容可见<a href="https://www.postgresql.org/docs/9.3/static/ssl-tcp.html" target="_blank" rel="noopener">这里</a>。</p>
-</li>
-<li><p><strong>hostnossl</strong><br>与hostssl相反，只匹配通过在TCP/IP上进行的非SSL联接企图</p>
-</li>
-</ol>
-<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>声明记录所匹配的数据库。<br>值 all 表明该记录匹配所有数据库;<br>值 sameuser表示如果被请求的数据库和请求的用户同名，则匹配;<br>值 samegroup 表示请求的用户必须是一个与数据库同名的组中的成员;<br>值 replication 表示匹配一条replication连接，它不指定一个特定的数据库，一般在流复制中使用;</p>
-<p>在其他情况里，这就是一个特定的 PostgreSQL 数据库的名字。 我们可以通过用逗号分隔的方法声明多个数据库。 一个包含数据库名的文件可以通过对该文件前缀 @ 来声明．该文件必需和 pg_hba.conf 在同一个目录。</p>
-<h2 id="用户user"><a href="#用户user" class="headerlink" title="用户user"></a>用户user</h2><p>为这条记录声明所匹配的 PostgreSQL 用户，值 all 表明它匹配 于所有用户。否则，它就是特定 PostgreSQL 用户的名字，多个用户名可以通过用逗号分隔的方法声明，在名字前面加上+代表匹配该用户组的所有用户。一个包含用户名的文件可以 通过在文件名前面前缀 @ 来声明，该文件必需和 pg_hba.conf 在同一个目录。</p>
+<p>举个栗子：<br>32 -&gt; 192.168.1.1/32 表示必须是来自这个IP地址的访问才合法；<br>24 -&gt; 192.168.1.0/24 表示只要来自192.168.1.0 ~ 192.168.1.255的都合法；<br>16 -&gt; 192.168.0.0/16 表示只要来自192.168.0.0 ~ 192.168.255.255的都合法；<br>8 -&gt; 192.0.0.0/16 表示只要来自192.0.0.0 ~ 192.255.255.255的都合法；<br>0 -&gt; 0.0.0.0/0 表示全部IP地址都合法，/左边的IP地址随便了只要是合法的IP地址即可；<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/19/pghba/#more" rel="contents">
