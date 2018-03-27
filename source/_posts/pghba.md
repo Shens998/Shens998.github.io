@@ -44,7 +44,7 @@ hostnossl  |database | user | IP-address IP-mask | auth-method | [auth-options]
 4. **hostnossl**
 与hostssl相反，只匹配通过在TCP/IP上进行的非SSL联接企图
 
-# 数据库
+## 数据库
 声明记录所匹配的数据库。
 值 all 表明该记录匹配所有数据库;
 值 sameuser表示如果被请求的数据库和请求的用户同名，则匹配;
@@ -53,10 +53,12 @@ hostnossl  |database | user | IP-address IP-mask | auth-method | [auth-options]
 
 在其他情况里，这就是一个特定的 PostgreSQL 数据库的名字。 我们可以通过用逗号分隔的方法声明多个数据库。 一个包含数据库名的文件可以通过对该文件前缀 @ 来声明．该文件必需和 pg_hba.conf 在同一个目录。
 
-# 用户user
+## 用户user
 为这条记录声明所匹配的 PostgreSQL 用户，值 all 表明它匹配 于所有用户。否则，它就是特定 PostgreSQL 用户的名字，多个用户名可以通过用逗号分隔的方法声明，在名字前面加上+代表匹配该用户组的所有用户。一个包含用户名的文件可以 通过在文件名前面前缀 @ 来声明，该文件必需和 pg_hba.conf 在同一个目录。
 
-##地址address
+<!-- more -->
+
+## 地址address
 指定匹配的客户端的地址，它可以是一个主机名，一个IP地址范围，或者下面提到的这些选项。
 
 一个IP地址范围是一个标准的点分十进制表示的 IP地址/掩码值。注意， 在’IP地址’,’/‘和’掩码值’之间不要有任何的空白字符。
