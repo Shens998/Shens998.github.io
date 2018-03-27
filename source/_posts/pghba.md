@@ -25,7 +25,7 @@ hostnossl  |database | user | IP-address IP-mask | auth-method | [auth-options]
 16 -> 192.168.0.0/16 表示只要来自192.168.0.0 ~ 192.168.255.255的都合法；
 8 -> 192.0.0.0/16 表示只要来自192.0.0.0 ~ 192.255.255.255的都合法；
 0 -> 0.0.0.0/0 表示全部IP地址都合法，/左边的IP地址随便了只要是合法的IP地址即可；
-
+<!-- more -->
 # 访问规则说明
 ## 连接方式（Type）
 连接方式共有四种：**local，host hostssl，hostnossl**
@@ -56,7 +56,7 @@ hostnossl  |database | user | IP-address IP-mask | auth-method | [auth-options]
 ## 用户user
 为这条记录声明所匹配的 PostgreSQL 用户，值 all 表明它匹配 于所有用户。否则，它就是特定 PostgreSQL 用户的名字，多个用户名可以通过用逗号分隔的方法声明，在名字前面加上+代表匹配该用户组的所有用户。一个包含用户名的文件可以 通过在文件名前面前缀 @ 来声明，该文件必需和 pg_hba.conf 在同一个目录。
 
-<!-- more -->
+
 
 ## 地址address
 指定匹配的客户端的地址，它可以是一个主机名，一个IP地址范围，或者下面提到的这些选项。
