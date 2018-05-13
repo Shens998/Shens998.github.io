@@ -305,6 +305,166 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://www.researchgate.net/profile/Shi_Shen2/2018/05/13/Hexo多终端同步/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SENSE">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/timg.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Shens' Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Shens' Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/13/Hexo多终端同步/" itemprop="url">
+                  基于Github和Hexo的多端个人博客同步
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-13T19:39:17+08:00">
+                2018-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/05/13/Hexo多终端同步/" class="leancloud_visitors" data-flag-title="基于Github和Hexo的多端个人博客同步">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基于Github和Hexo的个人博客构建"><a href="#基于Github和Hexo的个人博客构建" class="headerlink" title="基于Github和Hexo的个人博客构建"></a>基于Github和Hexo的个人博客构建</h1><p>基于Github和Hexo的个人博客教程网上很多，可以参考<a href="https://www.jianshu.com/p/6fb0b287f950" target="_blank" rel="noopener">这里</a></p>
+<h1 id="多终端博客内容同步"><a href="#多终端博客内容同步" class="headerlink" title="多终端博客内容同步"></a>多终端博客内容同步</h1><h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>Github即充当了个人静态网站的角色也利用其最基础的文件备份和版本控制的方法，将本地的网站文件备份到Github上。<br>利用Github建立两个仓库Master和Hexo</p>
+<p>Master - 对应的博客网站仓库<br>Hexo   - 对应的Hexo网站内战代码</p>
+<p>同样的在本地也建立这两个仓库。<br>在操作时，是在Master分支下新建博客页面并将生成的静态网站push到Master分支，同时在Hexo分支下将Hexokinase网站的代码Push到Hexo分支</p>
+<p>#要在hexo的配置中将部署git设置为master分支</p>
+<h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><p>Hexo 命令<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo -g #新建新文件</span><br><span class="line">hexo -s #在本地网站中查看</span><br><span class="line">hexo -d #将网页推送到远程仓库</span><br></pre></td></tr></table></figure></p>
+<p>Git 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add. #添加目录下所有文件</span><br><span class="line">git commit -m &quot;更新说明&quot; #提交并添加更新说明</span><br><span class="line">git push -u origin master #推送更新到远程仓库</span><br></pre></td></tr></table></figure></p>
+<p>在另一个终端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git remote add origin &lt;server&gt; </span><br><span class="line">git fetch --all </span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<p>日常维护<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#在hexo分支</span><br><span class="line">git pull #同步更新 </span><br><span class="line">hexo new post &quot;新建文章&quot; #简写形式 hexo n &quot;新建文章&quot; </span><br><span class="line">hexo clean #清除旧的public文件夹</span><br><span class="line">hexo generate #生成静态文件 简写形式 </span><br><span class="line">hexo g </span><br><span class="line">hexo deploy #发布到github上 简写形式 hexo d </span><br><span class="line"></span><br><span class="line">git checkout hexo #切换到hexo分支</span><br><span class="line">git add . #添加更改文件到缓存区 </span><br><span class="line">git commit -m &quot;更新说明&quot; #提交到本地仓库 </span><br><span class="line">git push -u origin master #推送到远程仓库进行备份</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://www.researchgate.net/profile/Shi_Shen2/2017/03/19/pgraster/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1568,7 +1728,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1586,7 +1746,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
