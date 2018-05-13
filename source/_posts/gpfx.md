@@ -2,7 +2,7 @@
 title: 股票价格时序分析
 tags:
   - Python
-categories: Data Analytics
+categories: Analytics
 abbrlink: 37313
 date: 2017-01-12 09:46:42
 ---

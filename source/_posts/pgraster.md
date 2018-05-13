@@ -2,6 +2,8 @@
 title: PostGIS存入读取栅格数据
 date: 2017-03-19 00:48:02
 tags:
+  - PostgreSQL
+categories: Programming
 ---
 PostGIS 导入栅格（Raster）数据
 利用 raster2pgsql 命令，示例代码如下：

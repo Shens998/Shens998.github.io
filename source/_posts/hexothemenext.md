@@ -1,9 +1,8 @@
 ---
 title: Hexo 主题 Next 修改(TBD)
 tags:
-  - hexo
-  - next
-categories: programming
+  - Hexo
+categories: Programming
 abbrlink: 4300
 date: 2017-01-18 10:27:48
 ---

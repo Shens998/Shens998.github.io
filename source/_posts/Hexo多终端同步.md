@@ -2,8 +2,8 @@
 title: 基于Github和Hexo的多端个人博客同步
 date: 2018-05-13 19:39:17
 tags:
-    - Hexo
-categories: programming
+  - Hexo
+categories: Programming
 ---
 # 基于Github和Hexo的个人博客构建
 
@@ -19,7 +19,8 @@ Master - 对应的博客网站仓库
 Hexo   - 对应的Hexo网站内战代码
 
 同样的在本地也建立这两个仓库。
-在操作时，是在Master分支下新建博客页面并将声称的静态网站push到Master分支，同时在Hexo分支下将Hexokinase网站的代码Push到Hexo分支
+在操作时，是在Master分支下新建博客页面并将生成的静态网站push到Master分支，同时在Hexo分支下将Hexokinase网站的代码Push到Hexo分支
+#要在hexo的配置中将部署git设置为master分支
 
 ## 基本代码
 
@@ -50,13 +51,12 @@ git reset --hard origin/master
 ```
 #在hexo分支
 git pull #同步更新 
-#在master分支执行
 hexo new post "新建文章" #简写形式 hexo n "新建文章" 
 hexo clean #清除旧的public文件夹
 hexo generate #生成静态文件 简写形式 
 hexo g 
 hexo deploy #发布到github上 简写形式 hexo d 
-#在hexo分支执行
+
 git checkout hexo #切换到hexo分支
 git add . #添加更改文件到缓存区 
 git commit -m "更新说明" #提交到本地仓库 

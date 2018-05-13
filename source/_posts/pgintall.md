@@ -2,6 +2,8 @@
 title: PostgreSQL安装
 date: 2017-03-19 00:38:05
 tags:
+  - PostgreSQL
+categories: Programming
 ---
 Tips:
 

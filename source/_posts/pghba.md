@@ -2,6 +2,8 @@
 title: PostgreSQL客户端认证pg_hba.conf文件
 date: 2017-03-19 00:39:24
 tags:
+  - PostgreSQL
+categories: Programming
 ---
 
 本文主要参考postgreSQL 9.3版本的官方手册，以及[该文](http://www.qingpingshan.com/shujuku/postgresql/156383.html)
