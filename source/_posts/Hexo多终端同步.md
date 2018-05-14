@@ -60,6 +60,6 @@ hexo deploy #发布到github上 简写形式 hexo d
 git checkout hexo #切换到hexo分支
 git add . #添加更改文件到缓存区 
 git commit -m "更新说明" #提交到本地仓库 
-git push -u origin master #推送到远程仓库进行备份
+git push -u origin hexo #推送到远程仓库进行备份
 
 ```
