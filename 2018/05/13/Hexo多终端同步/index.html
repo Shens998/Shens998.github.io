@@ -17,6 +17,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -110,7 +114,7 @@
 <meta property="og:site_name" content="Shens&#39; Blog">
 <meta property="og:description" content="基于Github和Hexo的个人博客构建基于Github和Hexo的个人博客教程网上很多，可以参考这里 多终端博客内容同步基本原理Github即充当了个人静态网站的角色也利用其最基础的文件备份和版本控制的方法，将本地的网站文件备份到Github上。利用Github建立两个仓库Master和Hexo Master - 对应的博客网站仓库Hexo   - 对应的Hexo网站内战代码 同样的在本地也建立">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-13T12:55:43.335Z">
+<meta property="og:updated_time" content="2018-05-14T13:21:01.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Github和Hexo的多端个人博客同步">
 <meta name="twitter:description" content="基于Github和Hexo的个人博客构建基于Github和Hexo的个人博客教程网上很多，可以参考这里 多终端博客内容同步基本原理Github即充当了个人静态网站的角色也利用其最基础的文件备份和版本控制的方法，将本地的网站文件备份到Github上。利用Github建立两个仓库Master和Hexo Master - 对应的博客网站仓库Hexo   - 对应的Hexo网站内战代码 同样的在本地也建立">
@@ -203,7 +207,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">blog</p>
+        <h1 class="site-subtitle" itemprop="description">blog</h1>
       
   </div>
 
@@ -262,14 +266,6 @@
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-schedule">
-    <a href="/schedule/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />Schedule</a>
   </li>
 
       
@@ -337,10 +333,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于Github和Hexo的多端个人博客同步
+          <h2 class="post-title" itemprop="name headline">基于Github和Hexo的多端个人博客同步
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -362,12 +358,24 @@
                 
               
 
-              <time title="Created: 2018-05-13 19:39:17 / Modified: 20:55:43" itemprop="dateCreated datePublished" datetime="2018-05-13T19:39:17+08:00">2018-05-13</time>
+              <time title="Created: 2018-05-13 19:39:17" itemprop="dateCreated datePublished" datetime="2018-05-13T19:39:17+08:00">2018-05-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-05-14 21:21:01" itemprop="dateModified" datetime="2018-05-14T21:21:01+08:00">2018-05-14</time>
               
             
           </span>
@@ -434,21 +442,39 @@
 <h2 id="基本代码"><a href="#基本代码" class="headerlink" title="基本代码"></a>基本代码</h2><p>Hexo 命令<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo -g #新建新文件</span><br><span class="line">hexo -s #在本地网站中查看</span><br><span class="line">hexo -d #将网页推送到远程仓库</span><br></pre></td></tr></table></figure></p>
 <p>Git 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add. #添加目录下所有文件</span><br><span class="line">git commit -m &quot;更新说明&quot; #提交并添加更新说明</span><br><span class="line">git push -u origin master #推送更新到远程仓库</span><br></pre></td></tr></table></figure></p>
 <p>在另一个终端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git remote add origin &lt;server&gt; </span><br><span class="line">git fetch --all </span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
-<p>日常维护<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#在hexo分支</span><br><span class="line">git pull #同步更新 </span><br><span class="line">hexo new post &quot;新建文章&quot; #简写形式 hexo n &quot;新建文章&quot; </span><br><span class="line">hexo clean #清除旧的public文件夹</span><br><span class="line">hexo generate #生成静态文件 简写形式 </span><br><span class="line">hexo g </span><br><span class="line">hexo deploy #发布到github上 简写形式 hexo d </span><br><span class="line"></span><br><span class="line">git checkout hexo #切换到hexo分支</span><br><span class="line">git add . #添加更改文件到缓存区 </span><br><span class="line">git commit -m &quot;更新说明&quot; #提交到本地仓库 </span><br><span class="line">git push -u origin master #推送到远程仓库进行备份</span><br></pre></td></tr></table></figure></p>
+<p>日常维护<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#在hexo分支</span><br><span class="line">git pull #同步更新 </span><br><span class="line">hexo new post &quot;新建文章&quot; #简写形式 hexo n &quot;新建文章&quot; </span><br><span class="line">hexo clean #清除旧的public文件夹</span><br><span class="line">hexo generate #生成静态文件 简写形式 </span><br><span class="line">hexo g </span><br><span class="line">hexo deploy #发布到github上 简写形式 hexo d </span><br><span class="line"></span><br><span class="line">git checkout hexo #切换到hexo分支</span><br><span class="line">git add . #添加更改文件到缓存区 </span><br><span class="line">git commit -m &quot;更新说明&quot; #提交到本地仓库 </span><br><span class="line">git push -u origin hexo #推送到远程仓库进行备份</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
 
     
+      
 
-    
-    
-    
-
-    
 
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>SENSE</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://www.researchgate.net/profile/Shi_Shen2/2018/05/13/Hexo多终端同步/" title="基于Github和Hexo的多端个人博客同步">https://www.researchgate.net/profile/Shi_Shen2/2018/05/13/Hexo多终端同步/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -462,14 +488,29 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/19/pgraster/" rel="next" title="PostGIS存入读取栅格数据">
-                <i class="fa fa-chevron-left"></i> PostGIS存入读取栅格数据
+              <a href="/2017/03/19/pgraster/" rel="next" title="PostGIS存入读取数据">
+                <i class="fa fa-chevron-left"></i> PostGIS存入读取数据
               </a>
             
           </div>
@@ -615,6 +656,15 @@
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:shenshi998@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
 
           
           
@@ -660,7 +710,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -672,9 +722,11 @@
 </div>
 
 
+  
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -682,7 +734,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.2.0</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.2.0</div>
 
 
 
@@ -750,6 +802,8 @@
 
 
 
+  
+
 
 
 
@@ -775,6 +829,11 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -853,6 +912,25 @@
 
   
   
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
 
   
 
@@ -863,6 +941,74 @@
   
 
   
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
 </body>
 </html>
