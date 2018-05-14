@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/timg.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="本文主要参考postgreSQL 9.3版本的官方手册，以及该文 pg_hba.conf 文件该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式    连接方式 数据库 用户 地址 连接方式 授权选项     local database user address auth-method [auth-o">
+<meta name="keywords" content="PostgreSQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL客户端认证pg_hba.conf文件">
+<meta property="og:url" content="https://www.researchgate.net/profile/Shi_Shen2/2017/03/19/pghba/index.html">
+<meta property="og:site_name" content="Shens&#39; Blog">
+<meta property="og:description" content="本文主要参考postgreSQL 9.3版本的官方手册，以及该文 pg_hba.conf 文件该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式    连接方式 数据库 用户 地址 连接方式 授权选项     local database user address auth-method [auth-o">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-13T12:56:52.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PostgreSQL客户端认证pg_hba.conf文件">
+<meta name="twitter:description" content="本文主要参考postgreSQL 9.3版本的官方手册，以及该文 pg_hba.conf 文件该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式    连接方式 数据库 用户 地址 连接方式 授权选项     local database user address auth-method [auth-o">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.researchgate.net/profile/Shi_Shen2/2017/03/19/pghba/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PostgreSQL客户端认证pg_hba.conf文件 | Shens' Blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f6435d6ed56ea8a20e0f1b01af82ff2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shens' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.researchgate.net/profile/Shi_Shen2/2017/03/19/pghba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SENSE">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shens' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PostgreSQL客户端认证pg_hba.conf文件
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-03-19 00:39:24" itemprop="dateCreated datePublished" datetime="2017-03-19T00:39:24+08:00">2017-03-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-05-13 20:56:52" itemprop="dateModified" datetime="2018-05-13T20:56:52+08:00">2018-05-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要参考postgreSQL 9.3版本的官方手册，以及<a href="http://www.qingpingshan.com/shujuku/postgresql/156383.html" target="_blank" rel="noopener">该文</a></p>
+<p>pg_hba.conf 文件<br>该文件负责对postgreSQL的客户端认证方式进行配置。在pg_hba.conf文件中，每条记录占一行，指定一条访问认证规则。总共有7中访问方式</p>
+<table>
+<thead>
+<tr>
+<th>连接方式</th>
+<th>数据库</th>
+<th>用户</th>
+<th>地址</th>
+<th>连接方式</th>
+<th>授权选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local</td>
+<td>database</td>
+<td>user</td>
+<td>address</td>
+<td>auth-method</td>
+<td>[auth-options]</td>
+</tr>
+<tr>
+<td>host</td>
+<td>database</td>
+<td>user</td>
+<td>address</td>
+<td>auth-method</td>
+<td>[auth-options]</td>
+</tr>
+<tr>
+<td>hostssl</td>
+<td>database</td>
+<td>user</td>
+<td>address</td>
+<td>auth-method</td>
+<td>[auth-options]</td>
+</tr>
+<tr>
+<td>hostnossl</td>
+<td>database</td>
+<td>user</td>
+<td>address</td>
+<td>auth-method</td>
+<td>[auth-options]</td>
+</tr>
+<tr>
+<td>host</td>
+<td>database</td>
+<td>user</td>
+<td>IP-address IP-mask</td>
+<td>auth-method</td>
+<td>[auth-options]</td>
+</tr>
+<tr>
+<td>hostssl</td>
+<td>database</td>
+<td>user</td>
+<td>IP-address IP-mask</td>
+<td>auth-method</td>
+<td>[auth-options]</td>
+</tr>
+<tr>
+<td>hostnossl</td>
+<td>database</td>
+<td>user</td>
+<td>IP-address IP-mask</td>
+<td>auth-method</td>
+<td>[auth-options]</td>
+</tr>
+</tbody>
+</table>
+<p>举个栗子：<br>32 -&gt; 192.168.1.1/32 表示必须是来自这个IP地址的访问才合法；<br>24 -&gt; 192.168.1.0/24 表示只要来自192.168.1.0 ~ 192.168.1.255的都合法；<br>16 -&gt; 192.168.0.0/16 表示只要来自192.168.0.0 ~ 192.168.255.255的都合法；<br>8 -&gt; 192.0.0.0/16 表示只要来自192.0.0.0 ~ 192.255.255.255的都合法；<br>0 -&gt; 0.0.0.0/0 表示全部IP地址都合法，/左边的IP地址随便了只要是合法的IP地址即可；<br><a id="more"></a></p>
+<h1 id="访问规则说明"><a href="#访问规则说明" class="headerlink" title="访问规则说明"></a>访问规则说明</h1><h2 id="连接方式（Type）"><a href="#连接方式（Type）" class="headerlink" title="连接方式（Type）"></a>连接方式（Type）</h2><p>连接方式共有四种：<strong>local，host hostssl，hostnossl</strong></p>
+<ol>
+<li><p><strong>local</strong><br>这条记录匹配通过 Unix 域套接字进行的联接企图， 没有这种类型的记录，就不允许 Unix 域套接字的联接。</p>
+</li>
+<li><p><strong>host</strong><br>这条记录匹配通过TCP/IP网络进行的联接尝试.他既匹配通过ssl方式的连接，也匹配通过非ssl方式的连接.<br><strong>Tips</strong>：要使用该选项你要在postgresql.conf文件里设置 listen_address 选项，不在listen_address里的IP地址是无法匹配到的。因为默认的行为是只在localhost上监听本地连接。</p>
+</li>
+<li><p><strong>hostssl</strong><br>这条记录匹配通过在TCP/IP上进行的SSL联接企图.<br>要使用该选项，服务器编译时必须使用–with-openssl选项，并且在服务器启动时ssl设置是打开的，具体内容可见<a href="https://www.postgresql.org/docs/9.3/static/ssl-tcp.html" target="_blank" rel="noopener">这里</a>。</p>
+</li>
+<li><p><strong>hostnossl</strong><br>与hostssl相反，只匹配通过在TCP/IP上进行的非SSL联接企图</p>
+</li>
+</ol>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>声明记录所匹配的数据库。<br>值 all 表明该记录匹配所有数据库;<br>值 sameuser表示如果被请求的数据库和请求的用户同名，则匹配;<br>值 samegroup 表示请求的用户必须是一个与数据库同名的组中的成员;<br>值 replication 表示匹配一条replication连接，它不指定一个特定的数据库，一般在流复制中使用;</p>
+<p>在其他情况里，这就是一个特定的 PostgreSQL 数据库的名字。 我们可以通过用逗号分隔的方法声明多个数据库。 一个包含数据库名的文件可以通过对该文件前缀 @ 来声明．该文件必需和 pg_hba.conf 在同一个目录。</p>
+<h2 id="用户user"><a href="#用户user" class="headerlink" title="用户user"></a>用户user</h2><p>为这条记录声明所匹配的 PostgreSQL 用户，值 all 表明它匹配 于所有用户。否则，它就是特定 PostgreSQL 用户的名字，多个用户名可以通过用逗号分隔的方法声明，在名字前面加上+代表匹配该用户组的所有用户。一个包含用户名的文件可以 通过在文件名前面前缀 @ 来声明，该文件必需和 pg_hba.conf 在同一个目录。</p>
+<h2 id="地址address"><a href="#地址address" class="headerlink" title="地址address"></a>地址address</h2><p>指定匹配的客户端的地址，它可以是一个主机名，一个IP地址范围，或者下面提到的这些选项。</p>
+<p>一个IP地址范围是一个标准的点分十进制表示的 IP地址/掩码值。注意， 在’IP地址’,’/‘和’掩码值’之间不要有任何的空白字符。</p>
+<p>比如对于IPv4地址来说， 172.20.143.89/32指定单个主机的IP，172.20.143.0/24代表一个小的子网。对于IPv6地址来说，::1/128指定单个主机(这里是本机环回地址)，fe80::7a31:c1ff:0000:0000/96 指定一个IPv6的子网。0.0.0.0/0代表所有IPv4地址，::0/0代表所有IPv6地址。</p>
+<p>一个IPv4地址选项只能匹配IPv4地址，一个IPv6地址选项只能匹配IPv6地址，即使给出的地址选项在IPV4和IPv6中同时存在。</p>
+<p>当然你可以使用 all 选项来匹配所有的IP地址，使用 samehost 匹配服务器自己所有的IP地址，samenet来匹配服务器直接接入的子网。</p>
+<p>如果指定的是主机名(既不是IP地址也不是上面提到的选项)，这个主机名将会和发起连接请求的客户端的IP地址的反向名称解析结果(即通过客户端的IP解析其主机名，比如使用反向DNS查找)进行比对，如果存在匹配，再使用正向名称解析(例如DNS查找)将主机名解析为IP地址(可能有多个IP地址)，再判断客户端的IP地址是否在这些IP地址中。如果正向和反向解析都成功匹配，那么就真正匹配这个地址(所以在pg_nba.conf文件里的主机地址必须是客户端IP的 address-to-name 解析返回的那个主机名。一些主机名数据库允许将一个IP地址和多个主机名绑定,但是在解析IP地址时，操作系统只会返回一个主机名)。</p>
+<p>有些主机名以点(.)开头，匹配那些具有相同后缀的主机名，比如*.example.com匹配foo.example.com(当然不仅仅只匹配foo.example.com)。</p>
+<p>还有，在pg_hba.conf文件中使用主机名的时候，你最好能保证主机名的解析比较快，一个好的建议就是建立一个本地的域名解析缓存(比如nscd)。</p>
+<p>本选项只能在连接方式是host,hostssl或者hostnossl的时候指定。</p>
+<p>IP地址，子网掩码<br>这两个字段包含可以看成是标准点分十进制表示的 IP地址/掩码值的一个替代。例如。使用255.255.255.0 代表一个24位的子网掩码。它们俩放在一起，声明了这条记录匹配的客户机的 IP 地址或者一个IP地址范围。本选项只能在连接方式是host,hostssl或者hostnossl的时候指定。</p>
+<h2 id="认证方法authentication-method"><a href="#认证方法authentication-method" class="headerlink" title="认证方法authentication method"></a>认证方法authentication method</h2><ol>
+<li><p><strong>Trust</strong><br>无条件地允许联接，这个方法允许任何可以与PostgreSQL 数据库联接的用户以他们期望的任意 PostgreSQL 数据库用户身份进行联接，而不需要口令。</p>
+</li>
+<li><p><strong>Reject</strong><br>联接无条件拒绝，常用于从一个组中”过滤”某些主机。</p>
+</li>
+<li><p><strong>MD5</strong><br>要求客户端提供一个 MD5 加密的口令进行认证，这个方法是允许加密口令存储在pg_shadow里的唯一的一个方法。MD5是常用的密码认证方式，如果你不使用ident，最好使用md5。密码是以md5形式传送给数据库，较安全，且不需建立同名的操作系统用户。</p>
+</li>
+<li><p><strong>Password</strong><br>Password是以明文密码传送给数据库，建议不要在生产环境中使用。</p>
+</li>
+<li><p><strong>Ident</strong><br>Ident是Linux下PostgreSQL默认的local认证方式，凡是能正确登录服务器的操作系统用户（注：不是数据库用户）就能使用本用户映射的数据库用户不需密码登录数据库。用户映射文件为pg_ident.conf，这个文件记录着与操作系统用户匹配的数据库用户，如果某操作系统用户在本文件中没有映射用户，则默认的映射数据库用户与操作系统用户同名。比如，服务器上有名为user1的操作系统用户，同时数据库上也有同名的数据库用户，user1登录操作系统后可以直接输入psql，以user1数据库用户身份登录数据库且不需密码。<br>此外PostgreSQL还支持更多的加密方法可以参考官方的文件<a href="https://www.postgresql.org/docs/9.3/static/auth-pg-hba-conf.html" target="_blank" rel="noopener">这里</a>.</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>SENSE</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://www.researchgate.net/profile/Shi_Shen2/2017/03/19/pghba/" title="PostgreSQL客户端认证pg_hba.conf文件">https://www.researchgate.net/profile/Shi_Shen2/2017/03/19/pghba/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/19/pgintall/" rel="next" title="PostgreSQL安装">
+                <i class="fa fa-chevron-left"></i> PostgreSQL安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/19/pgconf/" rel="prev" title="PostgreSQL配置文件postgresql.conf">
+                PostgreSQL配置文件postgresql.conf <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/timg.png"
+                alt="SENSE" />
+            
+              <p class="site-author-name" itemprop="name">SENSE</p>
+              <p class="site-description motion-element" itemprop="description">blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:shenshi998@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#访问规则说明"><span class="nav-number">1.</span> <span class="nav-text">访问规则说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接方式（Type）"><span class="nav-number">1.1.</span> <span class="nav-text">连接方式（Type）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">1.2.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户user"><span class="nav-number">1.3.</span> <span class="nav-text">用户user</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地址address"><span class="nav-number">1.4.</span> <span class="nav-text">地址address</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认证方法authentication-method"><span class="nav-number">1.5.</span> <span class="nav-text">认证方法authentication method</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SHENS</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.2.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
