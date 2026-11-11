@@ -7,7 +7,7 @@ from collections import Counter
 import json
 import re
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ['index.html','profile.html','404.html','robots.txt','sitemap.xml','assets/style.css','assets/site.js','assets/profile.js','assets/favicon.svg','assets/publications.json']
+PUBLIC = ['index.html','profile.html','404.html','robots.txt','sitemap.xml','assets/style.css','assets/site.js','assets/profile.js','assets/favicon.svg','assets/publications.json','assets/language.js','zh/index.html','zh/profile.html','zh/404.html']
 class Page(HTMLParser):
     def __init__(self):
         super().__init__(); self.ids=[]; self.links=[]; self.papers=[]
@@ -36,12 +36,12 @@ def main():
             parsed=urlsplit(link)
             if parsed.scheme or parsed.netloc:continue
             if parsed.path:
-                local=ROOT/unquote(parsed.path.lstrip('/'))
+                local=(ROOT if parsed.path.startswith('/') else (ROOT/name).parent)/unquote(parsed.path.lstrip('/'))
                 assert local.exists(), f'Broken local link in {name}: {link}'
             elif parsed.fragment:assert parsed.fragment in page.ids, f'Broken anchor: {link}'
-        if name in ('index.html','profile.html'):
+        if name in ('index.html','profile.html','zh/index.html','zh/profile.html'):
             assert len(page.papers)==len(papers), f'Paper count mismatch: {name}'
             assert Counter(p['data-group'] for p in page.papers)==Counter(p['group'] for p in papers)
             for p in papers:assert p['title'] in content, f'Missing title: {name}'
-    print(f'PASS: {len(PUBLIC)} public files; {len(papers)} papers in both pages; local links, IDs and privacy checks.')
+    print(f'PASS: {len(PUBLIC)} public files; {len(papers)} papers in all four language pages; local links, IDs and privacy checks.')
 if __name__=='__main__':main()

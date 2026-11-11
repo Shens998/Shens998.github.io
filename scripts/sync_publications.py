@@ -16,16 +16,18 @@ def render(p):
 def main():
     papers = sorted(json.loads((ROOT/'assets/publications.json').read_text(encoding='utf-8')), key=lambda p: -p['year'])
     markup = '\n'.join(map(render, papers))
-    for filename in ('index.html', 'profile.html'):
+    for filename in ('zh/index.html', 'zh/profile.html'):
         path = ROOT/filename
         content = path.read_text(encoding='utf-8')
-        pattern = r'(<div id="publication-list">).*?(</div>\s*<p id="empty-state")' if filename == 'index.html' else r'(<div id="profile-publications">).*?(</div>\s*<h2>参编专著)'
+        pattern = r'(<div id="publication-list">).*?(</div>\s*<p id="empty-state")' if filename.endswith('/index.html') else r'(<div id="profile-publications">).*?(</div>\s*<h2>参编专著)'
         content, n = re.subn(pattern, lambda m: m[1]+'\n'+markup+'\n'+m[2], content, count=1, flags=re.S)
         if n != 1:
             raise ValueError(f'Expected exactly one publication region in {filename}')
-        if filename == 'index.html':
+        if filename.endswith('/index.html'):
             content = re.sub(r'(<span class="heading-count">)\d+(</span>)', lambda m:m[1]+str(len(papers))+m[2], content)
         path.write_text(content, encoding='utf-8')
-    print(f'Synchronized {len(papers)} publications in both pages.')
+    import runpy
+    runpy.run_path(str(ROOT/'scripts/build_english.py'), run_name='__main__')
+    print(f'Synchronized {len(papers)} publications in all four language pages.')
 if __name__ == '__main__':
     main()

@@ -18,6 +18,7 @@ if (contours) {
 const menu = document.querySelector('.menu-toggle'), nav = document.querySelector('#nav');
 menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); nav.classList.toggle('is-open', open); });
 nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }));
+const isEnglish = document.documentElement.lang === 'en';
 const publications = [...document.querySelectorAll('.publication')];
 const search = document.querySelector('#paper-search'), year = document.querySelector('#paper-year');
 const more = document.querySelector('#show-more'), count = document.querySelector('#result-count');
@@ -28,10 +29,10 @@ function update() {
   const matches = publications.filter(p => (topic === 'all' || p.dataset.group === topic) && (year.value === 'all' || p.dataset.year === year.value) && p.textContent.toLocaleLowerCase().includes(term));
   const shown = new Set(matches.slice(0, limit));
   publications.forEach(p => { p.hidden = !shown.has(p); });
-  count.textContent = `${matches.length} 篇论文`;
+  count.textContent = isEnglish ? `${matches.length} publications` : `${matches.length} 篇论文`;
   document.querySelector('#empty-state').hidden = matches.length !== 0;
   more.hidden = matches.length <= limit;
-  more.textContent = `展开更多论文（还有 ${Math.max(0,matches.length-limit)} 篇） ↓`;
+  more.textContent = isEnglish ? `Show more (${Math.max(0,matches.length-limit)} remaining) ↓` : `展开更多论文（还有 ${Math.max(0,matches.length-limit)} 篇） ↓`;
   document.querySelectorAll('[data-filter]').forEach(b => { const active = b.dataset.filter === topic; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active)); });
 }
 document.querySelector('.pub-controls').hidden = false;

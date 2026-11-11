@@ -2,7 +2,8 @@
 
 面向 GitHub Pages 的静态学术网站。原生 HTML / CSS / JavaScript，无需安装依赖或构建。
 
-- 中文学术主页、三大研究方向与三项代表成果
+- 英文默认首页，完整中文版本位于 `/zh/`，支持语言切换并保留章节位置
+- 两种语言均提供研究方向、项目、学术经历、公开学术履历与隐私说明
 - 31 篇论文，按研究方向、年份、关键词组合筛选
 - 科研项目、学术经历、奖励、参编专著与知识产权
 - 可打印的公开版学术履历 `profile.html`
@@ -42,10 +43,10 @@ python3 -m http.server 8000
 
 ## 维护
 
-论文目录有两个静态副本（首页与公开履历）和一个可下载的 `assets/publications.json`。编辑 JSON 后运行 `python3 scripts/sync_publications.py` 同步网页和数量，再运行检查。论文无 JavaScript 也能阅读。
+论文目录有四个静态副本（中英文首页与公开履历）和一个可下载的 `assets/publications.json`。编辑 JSON 后运行 `python3 scripts/sync_publications.py`，同步四个页面和数量，再运行检查。论文无 JavaScript 也能阅读。论文题名、作者与期刊保留发表语言；英文界面中的项目、专著、专利与软件标题为说明性翻译。
 
-其他内容直接编辑 `index.html` 与 `profile.html`；样式见 `assets/style.css`，筛选交互见 `assets/site.js`。打印公开版履历可另存为 PDF。维护内容时不应将私人简历 PDF 放入公开仓库。
+中文内容编辑 `zh/index.html` 与 `zh/profile.html`；英文翻译对照在 `scripts/translations.json`。运行 `python3 scripts/build_english.py` 生成英文默认页 `index.html`、`profile.html` 和 `404.html`。不要只编辑生成后的英文页，否则下次生成会覆盖。样式见 `assets/style.css`，筛选交互见 `assets/site.js`。打印公开版履历可另存为 PDF。维护内容时不应将私人简历 PDF 放入公开仓库。
 
 ## 隐私
 
-公开内容省略个人电话、生日、详细地址、籍贯、政治面貌和邮箱。无追踪脚本、Cookie、第三方字体、访客表单或本地存储。交流入口为所有者公开 GitHub 页面。GitHub Pages 及外部链接有各自的服务隐私政策。
+公开内容省略个人电话、生日、详细地址、籍贯、政治面貌和邮箱。语言由页面 URL 确定，默认英文，不依赖浏览器语言，也不使用 Cookie 或本地存储。无追踪脚本、第三方字体或访客表单。交流入口为所有者公开 GitHub 页面。GitHub Pages 及外部链接有各自的服务隐私政策。
