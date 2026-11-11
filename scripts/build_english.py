@@ -13,6 +13,10 @@ class EnglishPage(HTMLParser):
         super().__init__(convert_charrefs=True); self.out=[]; self.in_paper=False
     def translate(self, text):
         key=text.strip()
+        recent=re.fullmatch(r'(\d{4}) 年至今：([\d,]+)',key)
+        if recent:return 'Since '+recent[1]+': '+recent[2]
+        snapshot=re.fullmatch(r'快照日期：(\d{4}-\d{2}-\d{2})。',key)
+        if snapshot:return 'Snapshot: '+snapshot[1]+'.'
         if key in TRANSLATIONS:
             return text[:len(text)-len(text.lstrip())] + TRANSLATIONS[key] + text[len(text.rstrip()):]
         if re.search('[\u4e00-\u9fff]',key) and key not in ('沈','中文'):

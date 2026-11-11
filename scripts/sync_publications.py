@@ -27,6 +27,7 @@ def main():
             content = re.sub(r'(<span class="heading-count">)\d+(</span>)', lambda m:m[1]+str(len(papers))+m[2], content)
         path.write_text(content, encoding='utf-8')
     import runpy
+    runpy.run_path(str(ROOT/'scripts/render_scholar.py'), run_name='__main__')
     runpy.run_path(str(ROOT/'scripts/build_english.py'), run_name='__main__')
     print(f'Synchronized {len(papers)} publications in all four language pages.')
 if __name__ == '__main__':

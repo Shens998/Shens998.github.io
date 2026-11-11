@@ -7,7 +7,7 @@ from collections import Counter
 import json
 import re
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ['index.html','profile.html','404.html','robots.txt','sitemap.xml','assets/style.css','assets/site.js','assets/profile.js','assets/favicon.svg','assets/publications.json','assets/language.js','zh/index.html','zh/profile.html','zh/404.html']
+PUBLIC = ['index.html','profile.html','404.html','robots.txt','sitemap.xml','assets/style.css','assets/site.js','assets/profile.js','assets/favicon.svg','assets/publications.json','assets/scholar.json','assets/language.js','zh/index.html','zh/profile.html','zh/404.html']
 class Page(HTMLParser):
     def __init__(self):
         super().__init__(); self.ids=[]; self.links=[]; self.papers=[]
@@ -20,6 +20,11 @@ class Page(HTMLParser):
         if a.get('target')=='_blank':
             assert 'noopener' in a.get('rel','') and 'noreferrer' in a.get('rel',''), 'Unsafe external link'
 def main():
+    scholar=json.loads((ROOT/'assets/scholar.json').read_text(encoding='utf-8'))
+    assert scholar['profile_id']=='qGDGTIIAAAAJ' and scholar['verification_method'] in ('author_supplied','direct_profile')
+    for metric in scholar['metrics'].values():
+        assert all(type(metric[k]) is int and metric[k]>=0 for k in ('all','since'))
+        assert metric['since']<=metric['all']
     papers=json.loads((ROOT/'assets/publications.json').read_text(encoding='utf-8'))
     assert len(papers)==len({p['title'] for p in papers}), 'Duplicate paper title'
     assert all(p['group'] in ('geoai','climate','human') for p in papers)
@@ -27,7 +32,7 @@ def main():
         content=(ROOT/name).read_text(encoding='utf-8')
         # Do not print matching private values if a check fails.
         assert not re.search(r'(?<!\d)1[3-9]\d{9}(?!\d)',content), f'Potential phone number in {name}'
-        assert not re.search(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}',content), f'Email in {name}'
+        assert set(re.findall(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}',content)) <= {'shens@bnu.edu.cn'}, f'Unauthorized email in {name}'
         assert not any(term in content for term in ('1990.10','B-718','15810553978','江苏睢宁','中共党员','/Users/','中文详细简历-沈石.pdf')), f'Private source detail in {name}'
         if not name.endswith('.html'):continue
         page=Page();page.feed(content)

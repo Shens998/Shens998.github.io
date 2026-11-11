@@ -49,4 +49,26 @@ python3 -m http.server 8000
 
 ## 隐私
 
-公开内容省略个人电话、生日、详细地址、籍贯、政治面貌和邮箱。语言由页面 URL 确定，默认英文，不依赖浏览器语言，也不使用 Cookie 或本地存储。无追踪脚本、第三方字体或访客表单。交流入口为所有者公开 GitHub 页面。GitHub Pages 及外部链接有各自的服务隐私政策。
+公开内容省略个人电话、生日、详细地址、籍贯和政治面貌。工作邮箱 `shens@bnu.edu.cn` 经所有者明确授权公开。语言由页面 URL 确定，默认英文，不依赖浏览器语言，也不使用 Cookie 或本地存储。无追踪脚本、第三方字体或访客表单。交流入口为所有者公开 GitHub 页面。GitHub Pages 及外部链接有各自的服务隐私政策。
+
+
+## Google Scholar 与每月维护
+
+公开主页：https://scholar.google.com/citations?user=qGDGTIIAAAAJ&hl=en
+
+`assets/scholar.json` 保存有来源、日期和核验方式的指标快照。2026-11-12 的首批数字由所有者从 Scholar 提供：总计 2027 / 23 / 49，2021 年至今 1873 / 21 / 47（引用次数 / h-index / i10-index）。网页会明确区分这两列；之后不按当前年份推测 since 年份。此快照并非本次自动抓取成功的结果。
+
+本聊天已配置 Codex 每月维护任务（每月 1 日北京时间 09:00）。这是本机 Codex 计划任务，不是 GitHub Actions 定时爬虫；执行时需要电脑开机、应用运行、项目可用及有效的网络／GitHub 凭据。权限限制或 Google Scholar 验证码可能使当月更新失败，任务将报告原因并保留旧数据。
+
+正常公开访问更新：
+
+```sh
+python3 scripts/update_scholar.py
+python3 scripts/sync_publications.py
+python3 scripts/check_site.py
+python3 -m unittest discover -s tests -v
+```
+
+也可用 `python3 scripts/update_scholar.py --html /path/to/exported-scholar.html` 导入从该公开 Scholar 页面保存的 HTML。不会使用 Google 登录 Cookie，不会绕过验证码或反复请求。网页不直接请求 Scholar，避免访客追踪和跨域故障。读取失败时脚本非零退出，不改已有快照；脚本只刷新指标，新增论文由每月任务依据 Scholar 和出版来源核实后再更新 `assets/publications.json`。
+
+首页布局借鉴 https://sciextremes.github.io/ 的研究主题导向、深色导航、简洁配色和大幅代表成果展示，文案、图形与代码为本站独立实现；未复制其研究成果或图件。
