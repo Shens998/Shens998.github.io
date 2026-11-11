@@ -4,6 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 from contextlib import redirect_stderr
 import io
+from email.message import Message
 import sys
 import tempfile
 import unittest
@@ -29,6 +30,13 @@ class ScholarTests(unittest.TestCase):
                 with self.assertRaises(ValueError):updater.parse_snapshot(content)
     def test_invalid_recent_column_rejected(self):
         with self.assertRaises(ValueError):updater.parse_snapshot(sample(values=(100,200,20,15,30,25)))
+    def test_declared_response_encoding(self):
+        response=io.BytesIO((sample()+'<p>café</p>').encode('iso-8859-1'))
+        response.headers=Message();response.headers['Content-Type']='text/html; charset=iso-8859-1'
+        self.assertEqual(updater.parse_snapshot(updater.read_document(response))['metrics']['h_index']['all'],20)
+    def test_oversized_response_rejected(self):
+        response=io.BytesIO(b'x'*2_000_001)
+        with self.assertRaises(ValueError):updater.read_document(response)
     def test_fetch_failure_preserves_snapshot(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);(root/'assets').mkdir();snapshot=root/'assets/scholar.json';snapshot.write_text('{"sentinel":"preserve"}')

@@ -45,13 +45,19 @@ def parse_snapshot(document):
     if any(values[i+1]>values[i] for i in (0,2,4)):
         raise ValueError('Recent metrics exceed all-time metrics.')
     return {'profile_id':PROFILE_ID,'profile_url':PROFILE_URL,'name':name,'affiliation':affiliation,'verified_at':datetime.now(timezone.utc).isoformat(timespec='seconds'),'verification_method':'direct_profile','since_year':int(year[1]),'metrics':{key:{'all':values[i],'since':values[i+1]} for key,i in [('citations',0),('h_index',2),('i10_index',4)]}}
+def read_document(response):
+    raw=response.read(2_000_001)
+    if len(raw)>2_000_000:
+        raise ValueError('Scholar response exceeds the expected size; not parsing truncated HTML.')
+    encoding=response.headers.get_content_charset() or 'utf-8'
+    return raw.decode(encoding)
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--html',type=Path,help='Read a user-exported public Scholar HTML page instead of fetching.');args=ap.parse_args()
     try:
         if args.html:document=args.html.read_text(encoding='utf-8')
         else:
             request=Request(PROFILE_URL,headers={'User-Agent':'AcademicHomepageUpdater/1.0 (public profile snapshot)','Accept-Language':'en'})
-            with urlopen(request,timeout=20) as response:document=response.read(2_000_000).decode('utf-8')
+            with urlopen(request,timeout=20) as response:document=read_document(response)
         snapshot=parse_snapshot(document)
     except Exception as error:
         print('Scholar refresh unavailable; existing snapshot unchanged. '+str(error),file=sys.stderr);return 2
