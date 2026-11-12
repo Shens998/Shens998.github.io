@@ -22,9 +22,10 @@ jobs:
         run: python3 scripts/check_site.py
       - name: Prepare public files only
         run: |
-          mkdir -p _site/assets _site/zh
+          mkdir -p _site/assets/figures _site/zh
           cp index.html profile.html 404.html robots.txt sitemap.xml _site/
-          cp assets/style.css assets/site.js assets/profile.js assets/language.js assets/favicon.svg assets/publications.json assets/scholar.json _site/assets/
+          cp assets/style.css assets/site.js assets/profile.js assets/language.js assets/favicon.svg assets/publications.json assets/scholar.json assets/figure-sources.json _site/assets/
+          cp assets/figures/stca-convolution.png assets/figures/haiyan-tweets.png assets/figures/hazard-impacts.png _site/assets/figures/
           cp zh/index.html zh/profile.html zh/404.html _site/zh/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5

@@ -6,8 +6,9 @@ from urllib.parse import urlsplit, unquote
 from collections import Counter
 import json
 import re
+import struct
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ['index.html','profile.html','404.html','robots.txt','sitemap.xml','assets/style.css','assets/site.js','assets/profile.js','assets/favicon.svg','assets/publications.json','assets/scholar.json','assets/language.js','zh/index.html','zh/profile.html','zh/404.html']
+PUBLIC = ['index.html','profile.html','404.html','robots.txt','sitemap.xml','assets/style.css','assets/site.js','assets/profile.js','assets/favicon.svg','assets/publications.json','assets/scholar.json','assets/figure-sources.json','assets/language.js','zh/index.html','zh/profile.html','zh/404.html']
 class Page(HTMLParser):
     def __init__(self):
         super().__init__(); self.ids=[]; self.links=[]; self.papers=[]
@@ -28,6 +29,17 @@ def main():
     papers=json.loads((ROOT/'assets/publications.json').read_text(encoding='utf-8'))
     assert len(papers)==len({p['title'] for p in papers}), 'Duplicate paper title'
     assert all(p['group'] in ('geoai','climate','human') for p in papers)
+    figures=json.loads((ROOT/'assets/figure-sources.json').read_text(encoding='utf-8'))
+    image_files={f['file'] for f in figures}
+    assert len(image_files)==len(figures)==3, 'Figure manifest must describe three distinct images'
+    for figure in figures:
+        assert figure['doi'] in {p.get('doi') for p in papers}, 'Figure must match an existing publication'
+        assert figure['license_url']=='https://creativecommons.org/licenses/by/4.0/'
+        assert figure['authors'] and figure['figure'] and figure['modification']
+        data=(ROOT/figure['file']).read_bytes()
+        assert data[:8]==b'\x89PNG\r\n\x1a\n', 'Invalid figure format'
+        assert struct.unpack('>II', data[16:24])==(figure['width'],figure['height']), 'Figure dimensions mismatch'
+        assert Path(figure['file']).name in (ROOT/'.github/workflows/pages.yml').read_text(), 'Figure missing from deployment'
     for name in PUBLIC:
         content=(ROOT/name).read_text(encoding='utf-8')
         # Do not print matching private values if a check fails.
@@ -43,10 +55,11 @@ def main():
             if parsed.path:
                 local=(ROOT if parsed.path.startswith('/') else (ROOT/name).parent)/unquote(parsed.path.lstrip('/'))
                 assert local.exists(), f'Broken local link in {name}: {link}'
+                assert str(local.resolve().relative_to(ROOT.resolve())) in set(PUBLIC)|image_files, f'Local asset not in public manifest: {link}'
             elif parsed.fragment:assert parsed.fragment in page.ids, f'Broken anchor: {link}'
         if name in ('index.html','profile.html','zh/index.html','zh/profile.html'):
             assert len(page.papers)==len(papers), f'Paper count mismatch: {name}'
             assert Counter(p['data-group'] for p in page.papers)==Counter(p['group'] for p in papers)
             for p in papers:assert p['title'] in content, f'Missing title: {name}'
-    print(f'PASS: {len(PUBLIC)} public files; {len(papers)} papers in all four language pages; local links, IDs and privacy checks.')
+    print(f'PASS: {len(PUBLIC)} public text files + {len(figures)} sourced figures; {len(papers)} papers in all four language pages; local links, IDs and privacy checks.')
 if __name__=='__main__':main()

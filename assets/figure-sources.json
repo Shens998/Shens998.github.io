@@ -1,0 +1,74 @@
+[
+  {
+    "file": "assets/figures/stca-convolution.png",
+    "width": 2100,
+    "height": 873,
+    "title": "A hybrid spatiotemporal convolution-based cellular automata model (ST-CA) for land-use/cover change simulation",
+    "authors": [
+      "Jiachen Geng",
+      "Shi Shen",
+      "Changxiu Cheng",
+      "Kaixuan Dai"
+    ],
+    "year": 2022,
+    "doi": "10.1016/j.jag.2022.102789",
+    "figure": "2",
+    "pdf_page": 3,
+    "license_page": 1,
+    "description": "Comparison of 2D and 3D convolution; full figure cropped from its PDF page.",
+    "source": "https://doi.org/10.1016/j.jag.2022.102789",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_checked": "2026-11-13",
+    "provenance": "Original published PDF located in the site owner's Zotero library. Article license and figure credit checked in the PDF.",
+    "modification": "Rasterized and cropped; original colors, data, and in-figure labels unchanged."
+  },
+  {
+    "file": "assets/figures/haiyan-tweets.png",
+    "width": 2340,
+    "height": 1125,
+    "title": "Global online social response to a natural disaster and its influencing factors: a case study of Typhoon Haiyan",
+    "authors": [
+      "Shi Shen",
+      "Ke Shi",
+      "Junwang Huang",
+      "Changxiu Cheng",
+      "Min Zhao"
+    ],
+    "year": 2023,
+    "doi": "10.1057/s41599-023-01922-5",
+    "figure": "2",
+    "pdf_page": 4,
+    "license_page": 15,
+    "description": "Global distribution of collected tweets and the study area; full figure cropped from its PDF page.",
+    "source": "https://doi.org/10.1057/s41599-023-01922-5",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_checked": "2026-11-13",
+    "provenance": "Original published PDF located in the site owner's Zotero library. Article license and figure credit checked in the PDF.",
+    "modification": "Rasterized and cropped; original colors, data, and in-figure labels unchanged."
+  },
+  {
+    "file": "assets/figures/hazard-impacts.png",
+    "width": 1020,
+    "height": 801,
+    "title": "Multidimensional Assessment of Meteorological Hazard Impacts: Spatiotemporal Evolution in China (2004–2021)",
+    "authors": [
+      "Zhaoge Sun",
+      "Shi Shen",
+      "Wei Xia"
+    ],
+    "year": 2025,
+    "doi": "10.3390/land14091892",
+    "figure": "5a",
+    "pdf_page": 13,
+    "license_page": 1,
+    "description": "Panel (a) only: provincial absolute multi-hazard composite impact grades, 2004–2021. Panel legend and inset retained; other panels omitted.",
+    "source": "https://doi.org/10.3390/land14091892",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_checked": "2026-11-13",
+    "provenance": "Original published PDF located in the site owner's Zotero library. Article license and figure credit checked in the PDF.",
+    "modification": "Rasterized and cropped; original colors, data, and in-figure labels unchanged."
+  }
+]

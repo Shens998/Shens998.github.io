@@ -1,20 +1,4 @@
 'use strict';
-// An abstract contour field, deliberately not presented as measured geographic data.
-const contours = document.querySelector('#contours');
-if (contours) {
-  for (let ring = 0; ring < 28; ring++) {
-    const points = [];
-    for (let step = 0; step <= 180; step++) {
-      const angle = step * Math.PI / 90;
-      const radius = 19 + ring * 10 + 10 * Math.sin(angle * 3 + ring * .10) + 6 * Math.cos(angle * 5 + ring * .08);
-      points.push(`${step ? 'L' : 'M'}${(275 + Math.cos(angle) * radius * 1.05).toFixed(2)},${(264 + Math.sin(angle) * radius * .78).toFixed(2)}`);
-    }
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('d', points.join(' ') + 'Z');
-    path.setAttribute('fill', 'none'); path.setAttribute('stroke', ring % 4 === 0 ? '#76866c' : '#a4af97');
-    path.setAttribute('stroke-width', ring % 4 === 0 ? '1' : '.65'); contours.append(path);
-  }
-}
 const menu = document.querySelector('.menu-toggle'), nav = document.querySelector('#nav');
 menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); nav.classList.toggle('is-open', open); });
 nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }));

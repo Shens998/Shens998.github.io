@@ -19,7 +19,7 @@
 - 台风海燕在线社会响应: https://doi.org/10.1057/s41599-023-01922-5 （期刊记录为 10:426，校正简历中的 Article 1）
 - 高原源区径流复杂性: https://doi.org/10.1016/j.jhydrol.2020.124996 （补全文章号与 DOI）
 
-其余 DOI 来自所有者提供的简历；未提供 DOI 的条目使用期刊链接或标明为“检索文献”的 Crossref 查询链接，不能将检索链接视作唯一匹配记录。首页图片均为本地生成的抽象研究主题示意，非论文图件或实测数据。
+其余 DOI 来自所有者提供的简历；未提供 DOI 的条目使用期刊链接或标明为“检索文献”的 Crossref 查询链接，不能将检索链接视作唯一匹配记录。首页研究配图来自所有者 Zotero 中的正式发表论文，保留原始配色、图例和标签；页面提供作者、图号、原文与 CC BY 4.0 许可链接。详情见 `assets/figure-sources.json`。
 
 ## 本地预览与检查
 
@@ -71,4 +71,16 @@ python3 -m unittest discover -s tests -v
 
 也可用 `python3 scripts/update_scholar.py --html /path/to/exported-scholar.html` 导入从该公开 Scholar 页面保存的 HTML。不会使用 Google 登录 Cookie，不会绕过验证码或反复请求。网页不直接请求 Scholar，避免访客追踪和跨域故障。读取失败时脚本非零退出，不改已有快照；脚本只刷新指标，新增论文由每月任务依据 Scholar 和出版来源核实后再更新 `assets/publications.json`。
 
-首页布局借鉴 https://sciextremes.github.io/ 的研究主题导向、深色导航、简洁配色和大幅代表成果展示，文案、图形与代码为本站独立实现；未复制其研究成果或图件。
+首页在此前参考 https://sciextremes.github.io/ 的研究导向布局上，于 2026-11-13 改为米白与青绿配色、衬线标题、细线图标和紧凑论文卡片。首屏以文字和研究者简介为主，不使用生成的大幅装饰图；未复制参考站的研究成果或图件。
+
+## 论文配图来源
+
+从 Zotero 的正式发表 PDF 提取并逐图核查：
+
+- Geng, Shen, Cheng & Dai (2022), ST-CA，图 2（PDF 第 3 页），完整图件。第 1 页注明 CC BY 4.0。
+- Shen et al. (2023), Typhoon Haiyan，图 2（PDF 第 4 页），完整图件。第 15 页注明 CC BY 4.0，所用图无单独排除许可的署名。
+- Sun, Shen & Xia (2025), Land 14:1892，图 5a（PDF 第 13 页），仅该子图，保留其图例与插图。第 1 页注明 CC BY 4.0。https://doi.org/10.3390/land14091892
+
+图像只进行页面裁切和栅格化，没有改变数据、配色或图中标注。点击首页配图可打开完整尺寸图片；DOI 入口提供论文全文上下文。原始 PDF、Zotero 私人附件路径及阅读笔记不随网站发布。2020 年径流研究继续保留在论文目录中；其 PDF 标记 All rights reserved，本次未使用其图件。
+
+新增配图时同时更新 `assets/figure-sources.json`、中英文配图说明、`scripts/check_site.py` 和部署白名单；不要直接打包整个 Zotero 附件目录。

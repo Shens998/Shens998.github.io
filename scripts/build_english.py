@@ -31,7 +31,7 @@ class EnglishPage(HTMLParser):
         for key,value in attrs:
             if value is None:translated.append(key);continue
             if key=='lang' and tag=='html':value='en'
-            if key in ('aria-label','placeholder','content') and not self.in_paper:value=self.translate(value)
+            if key in ('aria-label','placeholder','content','alt') and not self.in_paper:value=self.translate(value)
             if key in ('href','src') and value.startswith('../assets/'):value=value[3:]
             if key=='href' and value=='../index.html':value='index.html'
             if key=='href' and value=='../profile.html':value='profile.html'
@@ -61,7 +61,7 @@ def main():
         parser=EnglishPage();parser.feed((ROOT/'zh'/name).read_text(encoding='utf-8'))
         content=''.join(parser.out)
         if name=='index.html':
-            content=re.sub(r'<h1>.*?</h1>', '<h1>Understanding<br>our world through<br><span class="accent">geographic data.</span></h1>',content,count=1,flags=re.S)
+            content=re.sub(r'<h1>.*?</h1>', '<h1>Earth systems.<br><span class="accent">Spatial intelligence.</span></h1>',content,count=1,flags=re.S)
             content=content.replace('<span>Shi Shen <i>/</i> <span class="latin">Shi Shen</span></span>','<span>Shi Shen <i>/</i> <span class="latin" lang="zh-CN">沈石</span></span>')
             content=content.replace('>Shi Shen <i>/</i> Shi Shen</a>','>Shi Shen <i>/</i> <span lang="zh-CN">沈石</span></a>')
         elif name=='profile.html':
