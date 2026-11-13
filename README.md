@@ -71,7 +71,7 @@ python3 -m unittest discover -s tests -v
 
 也可用 `python3 scripts/update_scholar.py --html /path/to/exported-scholar.html` 导入从该公开 Scholar 页面保存的 HTML。不会使用 Google 登录 Cookie，不会绕过验证码或反复请求。网页不直接请求 Scholar，避免访客追踪和跨域故障。读取失败时脚本非零退出，不改已有快照；脚本只刷新指标，新增论文由每月任务依据 Scholar 和出版来源核实后再更新 `assets/publications.json`。
 
-首页在此前参考 https://sciextremes.github.io/ 的研究导向布局上，于 2026-11-13 改为米白与青绿配色、衬线标题、细线图标和紧凑论文卡片。首屏以文字和研究者简介为主，不使用生成的大幅装饰图；未复制参考站的研究成果或图件。
+网站在此前参考 https://sciextremes.github.io/ 的研究导向布局基础上，于 2026-11-13 按所有者选择的 C「学术履历型」方案重构。中英文首页和公开履历统一使用暖纸色、深褐色、衬线标题与细线图标。首页将姓名、研究方向、论文原图及学术经历编排为学术档案；代表成果保留完整论文配图与来源。未使用生成的大幅装饰图，也未复制参考站的成果或图件。公开履历提供章节导航，打印时自动展开项目列表，结束后恢复原有折叠状态。
 
 ## 论文配图来源
 

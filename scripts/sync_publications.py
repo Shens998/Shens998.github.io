@@ -19,7 +19,7 @@ def main():
     for filename in ('zh/index.html', 'zh/profile.html'):
         path = ROOT/filename
         content = path.read_text(encoding='utf-8')
-        pattern = r'(<div id="publication-list">).*?(</div>\s*<p id="empty-state")' if filename.endswith('/index.html') else r'(<div id="profile-publications">).*?(</div>\s*<h2>参编专著)'
+        pattern = r'(<div id="publication-list">).*?(</div>\s*<p id="empty-state")' if filename.endswith('/index.html') else r'(<div id="profile-publications">).*?(</div>\s*<h2\b[^>]*>参编专著)'
         content, n = re.subn(pattern, lambda m: m[1]+'\n'+markup+'\n'+m[2], content, count=1, flags=re.S)
         if n != 1:
             raise ValueError(f'Expected exactly one publication region in {filename}')

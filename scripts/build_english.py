@@ -61,7 +61,7 @@ def main():
         parser=EnglishPage();parser.feed((ROOT/'zh'/name).read_text(encoding='utf-8'))
         content=''.join(parser.out)
         if name=='index.html':
-            content=re.sub(r'<h1>.*?</h1>', '<h1>Earth systems.<br><span class="accent">Spatial intelligence.</span></h1>',content,count=1,flags=re.S)
+            content=re.sub(r'<h1>.*?</h1>', '<h1>Shi Shen <span lang="zh-CN">沈石</span></h1>',content,count=1,flags=re.S)
             content=content.replace('<span>Shi Shen <i>/</i> <span class="latin">Shi Shen</span></span>','<span>Shi Shen <i>/</i> <span class="latin" lang="zh-CN">沈石</span></span>')
             content=content.replace('>Shi Shen <i>/</i> Shi Shen</a>','>Shi Shen <i>/</i> <span lang="zh-CN">沈石</span></a>')
         elif name=='profile.html':
